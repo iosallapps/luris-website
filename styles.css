@@ -394,6 +394,20 @@ p { margin: 0; text-wrap: pretty; }
 .legal th { color: var(--text); font-weight: 600; width: 36%; }
 .legal td { color: var(--text-2); }
 .legal .legal-note { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--text-3); font-size: 0.9rem; }
+.legal { overflow-wrap: break-word; }
+.legal h3 { font-size: 1.04rem; font-weight: 650; margin: 26px 0 8px; letter-spacing: -0.005em; color: var(--text); }
+.legal ul, .legal ol { margin: 12px 0 0; padding-left: 1.3em; }
+.legal li + li { margin-top: 8px; }
+.legal ul + p, .legal ol + p, .legal table + p, .legal p + table { margin-top: 12px; }
+.legal .callout p + p { margin-top: 10px; }
+.legal .toc {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    padding: 18px 20px; margin: 0 0 8px; box-shadow: var(--shadow-soft);
+}
+.legal .toc h2 { margin: 0 0 6px; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); }
+.legal .toc ol { margin: 0; padding-left: 1.5em; font-size: 0.95rem; }
+.legal .toc li + li { margin-top: 4px; }
+@media (min-width: 720px) { .legal .toc ol { columns: 2; column-gap: 32px; } .legal .toc li { break-inside: avoid; } }
 
 .notfound { text-align: center; padding: 88px 0 72px; }
 .notfound img { width: 88px; height: 88px; border-radius: 20px; margin: 0 auto 24px; }
