@@ -1,354 +1,557 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Luris: Run, Step and GPS Tracker for iPhone</title>
-    <meta name="description" content="Luris brings your steps, GPS walks and runs, a weekly training plan, progress photos and a weekly steps leaderboard together on your iPhone, built on Apple Health. No account needed.">
+    <meta charset="utf-8">
+    <!-- build:head -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self'; font-src 'self'; connect-src 'self'; media-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F3F6FB">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0A0F1A">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="/styles.css?v=dbba3f359c">
+    <!-- /build:head -->
+    <!-- build:meta -->
+    <title>Luris: Step &amp; Activity Tracker for iPhone</title>
+    <meta name="description" content="Luris counts your steps from Apple Health, maps your walks and runs with GPS and builds a six-week workout plan from 873 exercises. No account, no ads.">
     <link rel="canonical" href="https://lurisapp.com/">
-
-    <!-- Social -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Luris">
+    <meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://lurisapp.com/">
-    <meta property="og:title" content="Luris: Run, Step and GPS Tracker for iPhone">
-    <meta property="og:description" content="Steps, GPS walks and runs, a weekly training plan and progress you can see, built on Apple Health.">
-    <meta property="og:image" content="https://lurisapp.com/og-image.png">
+    <meta property="og:title" content="Luris: Step &amp; Activity Tracker for iPhone">
+    <meta property="og:description" content="Steps, GPS walks and runs, a six-week plan and progress you can see, built on Apple Health.">
+    <meta property="og:image" content="https://lurisapp.com/og-image.jpg">
+    <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="The Luris app icon and a live GPS run on an iPhone, beside the words Every step, every route, one app.">
+    <meta property="og:image:alt" content="Luris on two iPhones, today&#x27;s steps ring and a run drawn on the map, beside the words Every step, every route, one app.">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Luris: Run, Step and GPS Tracker for iPhone">
-    <meta name="twitter:description" content="Steps, GPS walks and runs, a weekly training plan and progress you can see, built on Apple Health.">
-    <meta name="twitter:image" content="https://lurisapp.com/og-image.png">
-
-    <!-- Icons -->
-    <link rel="icon" href="favicon.ico" sizes="48x48">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
-    <link rel="preload" as="image" href="img/screens/home-720.webp" imagesrcset="img/screens/home-480.webp 480w, img/screens/home-720.webp 720w" imagesizes="(min-width: 900px) 340px, 86vw">
-    <link rel="stylesheet" href="styles.css?v=2">
-
-    <!--
-        APP STORE LINK PLACEHOLDER
-        Every "Download" link on the site points at https://apps.apple.com/app/idXXXXXXXXXX.
-        Once the app has its App Store id, replace idXXXXXXXXXX in every file:
-            grep -rl idXXXXXXXXXX . | xargs sed -i '' 's/idXXXXXXXXXX/id1234567890/g'
-    -->
+    <meta name="twitter:title" content="Luris: Step &amp; Activity Tracker for iPhone">
+    <meta name="twitter:description" content="Steps, GPS walks and runs, a six-week plan and progress you can see, built on Apple Health.">
+    <meta name="twitter:image" content="https://lurisapp.com/og-image.jpg">
+    <meta name="twitter:image:alt" content="Luris on two iPhones, today&#x27;s steps ring and a run drawn on the map, beside the words Every step, every route, one app.">
+    <!-- /build:meta -->
+    <link rel="preload" as="image" type="image/avif" fetchpriority="high"
+          imagesrcset="/img/screens/home-480.avif 480w, /img/screens/home-720.avif 720w, /img/screens/home-1080.avif 1080w"
+          imagesizes="(min-width: 900px) 290px, (min-width: 395px) 300px, 76vw">
+    <!-- build:jsonld -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Luris",
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "iOS 26.2 or later",
-      "description": "Fitness tracker for iPhone built on Apple Health: steps and activity, GPS walks and runs with a map, a generated weekly training plan, workouts from a bundled exercise library, progress photos, achievements and a weekly steps leaderboard in Game Center.",
-      "url": "https://lurisapp.com/",
-      "downloadUrl": "https://apps.apple.com/app/idXXXXXXXXXX",
-      "image": "https://lurisapp.com/apple-touch-icon.png"
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://lurisapp.com/#website",
+          "url": "https://lurisapp.com/",
+          "name": "Luris",
+          "inLanguage": "en"
+        },
+        {
+          "@type": "Person",
+          "@id": "https://lurisapp.com/#developer",
+          "name": "Cirjan Darius",
+          "email": "mailto:iosallapps@gmail.com"
+        },
+        {
+          "@type": "MobileApplication",
+          "@id": "https://lurisapp.com/#app",
+          "name": "Luris",
+          "alternateName": "Luris: Step & Activity Tracker",
+          "url": "https://lurisapp.com/",
+          "description": "Luris counts your steps from Apple Health, maps your walks and runs with GPS and builds a six-week workout plan from 873 exercises. No account, no ads.",
+          "applicationCategory": "HealthApplication",
+          "applicationSubCategory": "Step counter and GPS walk and run tracker",
+          "operatingSystem": "iOS 26.2 or later",
+          "availableOnDevice": "iPhone",
+          "inLanguage": [
+            "en",
+            "de",
+            "es",
+            "fr",
+            "it",
+            "ja",
+            "ko",
+            "nl",
+            "pl",
+            "pt-BR",
+            "pt-PT",
+            "ro",
+            "sv",
+            "tr",
+            "zh-Hans",
+            "zh-Hant"
+          ],
+          "featureList": [
+            "Steps and activity from Apple Health",
+            "GPS walk and run tracking with a map",
+            "Six-week workout plan",
+            "873 exercises with images",
+            "Weight and body fat trend charts and progress photos",
+            "49 achievements",
+            "Weekly Game Center steps leaderboard",
+            "Share Studio cards",
+            "Home Screen and Lock Screen widget",
+            "Live Activity"
+          ],
+          "image": "https://lurisapp.com/img/app-icon-512.png",
+          "screenshot": [
+            "https://lurisapp.com/img/screens/home-screen.jpg",
+            "https://lurisapp.com/img/screens/route-screen.jpg"
+          ],
+          "author": {
+            "@id": "https://lurisapp.com/#developer"
+          },
+          "publisher": {
+            "@id": "https://lurisapp.com/#developer"
+          }
+        }
+      ]
     }
     </script>
+    <!-- /build:jsonld -->
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
-
-    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <!-- build:sprite -->
+    <svg class="sprite" aria-hidden="true" focusable="false">
         <defs>
-            <symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></symbol>
-            <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" style="fill: var(--check-fill, #2E7BFF33)"/><path fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--check-stroke, #2E7BFF)" d="m7.5 12.4 3 3 6-6.4"/></symbol>
-            <symbol id="i-heart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 20.3s-7.8-4.6-7.8-10.6A4.4 4.4 0 0 1 12 7a4.4 4.4 0 0 1 7.8 2.7c0 6-7.8 10.6-7.8 10.6z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6.5 12.5h3l1.5-2.5 2 4 1.5-1.5h3"/></symbol>
-            <symbol id="i-widget" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/></g></symbol>
-            <symbol id="i-live" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10 6h4"/><path d="M9 15.5h6"/></g></symbol>
-            <symbol id="i-dumbbell" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6.5 6.5v11M17.5 6.5v11M3.5 9.5v5M20.5 9.5v5M6.5 12h11"/></symbol>
-            <symbol id="i-trophy" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 21h8M12 16.5V21M7 3.5h10V9a5 5 0 0 1-10 0V3.5zM7 5.5H4v1.5a3 3 0 0 0 3 3M17 5.5h3v1.5a3 3 0 0 1-3 3"/></symbol>
-            <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></g></symbol>
-            <symbol id="i-user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></g></symbol>
-            <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.6 3 8.3 7 10 4-1.7 7-5.4 7-10V6l-7-3z"/><path d="m9 12 2 2 4-4.2"/></g></symbol>
-            <symbol id="i-podium" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M3.5 20.5v-7h5.5v7M9 20.5V7.5h6v13M15 20.5v-9.5h5.5v9.5M2.5 20.5h19"/></symbol>
+        <linearGradient id="wordmark-gradient" x1="0" y1="0" x2="1" y2="0"><stop offset="0" class="wm-a" stop-color="#2E7BFF"/><stop offset="1" class="wm-b" stop-color="#1A5FE0"/></linearGradient>
+        <symbol id="wordmark" viewBox="0 0 6679 1493"><path fill="url(#wordmark-gradient)" d="M183.2 1467.8Q96.4 1467.8 48.2 1417.6Q0 1367.3 0 1276.2V193.9Q0 102 48.2 52.2Q96.4 2.4 183.2 2.4Q270 2.4 318.2 52.2Q366.4 102 366.4 193.9V1171.3H818.8Q891.9 1171.3 936.9 1210.2Q981.9 1249.2 981.9 1319.5Q981.9 1389.9 937.7 1428.8Q893.4 1467.8 818.8 1467.8ZM1998.9 1492.5Q1811.5 1492.5 1671.5 1425.9Q1531.6 1359.3 1454.7 1238.3Q1377.8 1117.3 1377.8 955.7V193.9Q1377.8 102 1425.9 52.2Q1474.1 2.4 1561 2.4Q1647.8 2.4 1696 52.2Q1744.2 102 1744.2 193.9V916.9Q1744.2 1042.5 1810.1 1113.8Q1876.1 1185.2 1998.9 1185.2Q2122 1185.2 2187.8 1113.8Q2253.6 1042.5 2253.6 916.9V193.9Q2253.6 102 2301.8 52.2Q2350 2.4 2436.8 2.4Q2523.7 2.4 2571.8 52.2Q2620 102 2620 193.9V955.7Q2620 1117.3 2543.1 1238.3Q2466.2 1359.3 2326.6 1425.9Q2187.1 1492.5 1998.9 1492.5ZM3267.7 1491.1Q3181.1 1491.1 3132.8 1440.8Q3084.5 1390.5 3084.5 1299.6V216.3Q3084.5 124.4 3132.7 74.6Q3180.9 24.8 3267.7 24.8H3701.9Q3882.2 24.8 4005.5 81.7Q4128.9 138.6 4192.4 245.1Q4255.9 351.5 4255.9 500.6Q4255.9 627.9 4198.8 734.5Q4141.6 841 4030.8 897L4208.5 1197.7Q4232.5 1237.3 4239.9 1264Q4247.4 1290.7 4247.4 1323.3Q4247.4 1396.5 4195.6 1443.8Q4143.9 1491.1 4064.4 1491.1Q4019.8 1491.1 3989.1 1478.4Q3958.4 1465.6 3932.6 1434.3Q3906.7 1402.9 3874.8 1347.5L3661.5 963.2Q3661.5 963.2 3661.5 963.2Q3661.5 963.2 3661.5 963.2H3450.9V1299.6Q3450.9 1390.5 3402.7 1440.8Q3354.6 1491.1 3267.7 1491.1ZM3450.9 711.8H3666.1Q3766.9 711.8 3824 656.6Q3881.2 601.4 3881.2 507.4Q3881.2 415.6 3822.4 358.6Q3763.7 301.7 3664.9 301.7H3450.9ZM4868.5 1490.2Q4781.6 1490.2 4733.5 1440Q4685.3 1389.7 4685.3 1298.6V193.9Q4685.3 102 4733.5 52.2Q4781.6 2.4 4868.5 2.4Q4955.3 2.4 5003.5 52.2Q5051.7 102 5051.7 193.9V1298.6Q5051.7 1389.7 5003.5 1440Q4955.3 1490.2 4868.5 1490.2ZM6072.3 1492.5Q5916.5 1492.5 5801.5 1456.8Q5686.6 1421.1 5613.7 1360.3Q5540.8 1299.6 5510.8 1225.6Q5501.4 1202.9 5496.5 1180Q5491.6 1157.2 5491.6 1134.3Q5491.6 1065.3 5536.3 1023.1Q5580.9 980.9 5650.2 980.9Q5704.1 980.9 5742.8 1002.3Q5781.5 1023.6 5816.7 1077.9Q5841 1122.1 5880.5 1150.9Q5920 1179.6 5970.6 1192.8Q6021.1 1206 6078.5 1206Q6150.5 1206 6203.3 1186.3Q6256.2 1166.7 6285.5 1132.2Q6314.9 1097.7 6314.9 1054.2Q6314.9 993.8 6262.9 959.2Q6210.9 924.7 6082.3 900.1L5933.7 872Q5718.2 831.9 5607.5 726.8Q5496.8 621.6 5496.8 457Q5496.8 318.1 5571 215.5Q5645.1 112.9 5774.3 56.5Q5903.4 0 6070 0Q6207.8 0 6318.6 33.9Q6429.4 67.8 6506.2 132.6Q6582.9 197.4 6617.3 289.3Q6632.3 326.4 6632.3 367.9Q6632.3 431.6 6590.2 470.8Q6548.1 510 6478.4 510.8Q6419.2 510.8 6378.5 487.4Q6337.8 464.1 6305.9 411.7Q6282.5 367 6248.2 339.6Q6213.9 312.2 6170 299.4Q6126.2 286.5 6072.6 286.5Q6006.3 286.5 5959.1 305Q5911.9 323.4 5886.6 356.1Q5861.3 388.7 5861.3 431.4Q5861.3 488.9 5913.6 523Q5965.9 557.2 6083.4 580L6231.9 608.2Q6463.3 651.8 6571.3 750Q6679.4 848.2 6679.4 1018.8Q6679.4 1163.3 6606.9 1269.9Q6534.4 1376.6 6398.5 1434.6Q6262.6 1492.5 6072.3 1492.5Z"/></symbol>
+        <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="currentColor" fill-opacity=".16"/><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m7.5 12.4 3 3 6-6.4"/></symbol>
+        <symbol id="i-widget" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="17" height="7" rx="2"/></g></symbol>
+        <symbol id="i-live" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="2.5" width="12" height="19" rx="3.2"/><rect x="9" y="5.3" width="6" height="2.2" rx="1.1" fill="currentColor" stroke="none"/><path d="M9 15.5h6"/></g></symbol>
+        <symbol id="i-ruler" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 16.2 16.2 3.6a1.4 1.4 0 0 1 2 0l2.2 2.2a1.4 1.4 0 0 1 0 2L7.8 20.4a1.4 1.4 0 0 1-2 0l-2.2-2.2a1.4 1.4 0 0 1 0-2z"/><path d="m7.4 12.4 2 2M10.4 9.4l1.4 1.4M13.4 6.4l2 2"/></g></symbol>
+        <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></g></symbol>
+        <symbol id="i-watch" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="3.4"/><path d="M8.5 6 9.3 2.5h5.4L15.5 6M8.5 18l.8 3.5h5.4l.8-3.5"/></g></symbol>
+        <symbol id="i-user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></g></symbol>
+        <symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.2 12.2h3.6v3.3h-3.6zM10.9 12.2v-1.1a1.1 1.1 0 0 1 2.2 0v1.1"/></g></symbol>
+        <symbol id="i-out" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-8.5 8.5"/><path d="M18 14v4.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H10"/></g></symbol>
+        <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></g></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.8 6.5 8.2 6.3 8.2-6.3"/></g></symbol>
         </defs>
     </svg>
-
+    <!-- /build:sprite -->
+    <!-- build:header -->
     <header class="site-header">
         <div class="container bar">
-            <a class="brand" href="./" aria-label="Luris home">
-                <img src="img/luris-mark-96.png" width="34" height="34" alt="">
-                <span class="wordmark">LURIS</span>
-            </a>
+            <a class="brand" href="/" aria-label="Luris home"><img src="/img/luris-mark-96.png" width="32" height="32" alt=""><svg class="wordmark" viewBox="0 0 6679 1493" aria-hidden="true" focusable="false"><use href="#wordmark"/></svg></a>
             <nav class="nav" aria-label="Primary">
-                <a class="nav-wide" href="#features">Features</a>
-                <a class="nav-wide" href="#privacy">Privacy</a>
-                <a href="support.html">Support</a>
-                <a class="btn btn-primary btn-small" href="https://apps.apple.com/app/idXXXXXXXXXX">Download</a>
+                <a class="nav-wide" href="/#features">Features</a>
+                <a class="nav-wide" href="/#privacy">Privacy</a>
+                <a href="/support.html">Support</a>
+                <span class="soon-chip">Coming soon</span>
             </nav>
         </div>
     </header>
+    <!-- /build:header -->
 
     <main id="main">
         <div class="container hero-wrap">
-            <section class="panel" aria-labelledby="hero-title">
-                <div class="hero">
-                    <div class="hero-copy">
-                        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Fitness tracker for iPhone</p>
-                        <h1 id="hero-title">Every step, every route, <span class="accent-text">one app.</span></h1>
-                        <p class="lede">Luris brings your steps, GPS walks and runs, guided workouts and progress together in one place, built on Apple Health. There is no account to create.</p>
-                        <div class="hero-actions">
-                            <a class="btn btn-store" href="https://apps.apple.com/app/idXXXXXXXXXX">
-                                <svg aria-hidden="true"><use href="#i-apple"/></svg>
-                                <span><small>Download on the</small><strong>App Store</strong></span>
-                            </a>
-                            <p class="hero-note">For iPhone with iOS 26.2 or later</p>
+            <section class="panel hero" aria-labelledby="hero-title">
+                <div class="hero-copy">
+                    <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Step counter and GPS run tracker for iPhone</p>
+                    <h1 id="hero-title">Every step, every route, <span class="accent-text">one app.</span></h1>
+                    <p class="lede">Luris counts your day from Apple Health, maps your walks and runs, and builds a six-week plan from 873 exercises. There is no account to create.</p>
+                    <!-- build:hero-cta -->
+                        <div class="store-state">
+                            <p class="soon"><svg aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>Coming soon to the App Store</p>
+                            <p class="requirement">For iPhone with iOS 26.2 or later.</p>
                         </div>
-                        <ul class="hero-facts" aria-label="At a glance">
-                            <li>Built on Apple Health</li>
-                            <li>No account needed</li>
-                            <li>No ads or analytics</li>
-                            <li>16 languages</li>
-                        </ul>
-                    </div>
-                    <div class="hero-shot">
-                        <img src="img/screens/home-720.webp"
-                             srcset="img/screens/home-480.webp 480w, img/screens/home-720.webp 720w"
-                             sizes="(min-width: 900px) 340px, 86vw"
-                             width="720" height="1237"
-                             alt="The Luris Home tab: a steps ring at 7,842 of 10,000 with calories, active minutes, distance and floors, Walking and Running buttons, the weekly leaderboard and today's plan.">
-                    </div>
+                    <!-- /build:hero-cta -->
+                    <ul class="chips" aria-label="At a glance">
+                        <li>Built on Apple Health</li>
+                        <li>No account</li>
+                        <li>No ads or tracking</li>
+                        <li>16 languages</li>
+                    </ul>
+                </div>
+                <div class="hero-devices">
+                    <picture class="device device-front">
+                        <source type="image/avif"
+                                srcset="/img/screens/home-480.avif 480w, /img/screens/home-720.avif 720w, /img/screens/home-1080.avif 1080w"
+                                sizes="(min-width: 900px) 290px, (min-width: 395px) 300px, 76vw">
+                        <img src="/img/screens/home-720.webp"
+                             srcset="/img/screens/home-480.webp 480w, /img/screens/home-720.webp 720w, /img/screens/home-1080.webp 1080w"
+                             sizes="(min-width: 900px) 290px, (min-width: 395px) 300px, 76vw"
+                             width="720" height="1469" fetchpriority="high"
+                             alt="The Luris Home tab: a steps ring at 7,842 of 10,000 with calories, active minutes, distance and floors beside it, Walking and Running buttons, and the weekly leaderboard with your rank.">
+                    </picture>
+                    <picture class="device device-back">
+                        <source type="image/avif"
+                                srcset="/img/screens/route-480.avif 480w, /img/screens/route-720.avif 720w"
+                                sizes="230px">
+                        <img src="/img/screens/route-480.webp"
+                             srcset="/img/screens/route-480.webp 480w, /img/screens/route-720.webp 720w"
+                             sizes="230px" width="720" height="1469" loading="lazy" decoding="async"
+                             alt="A run in progress in Luris: the route drawn in blue on the map, with time, distance, pace and calories.">
+                    </picture>
                 </div>
             </section>
         </div>
 
-        <section class="section" id="features" aria-labelledby="features-title">
+        <section class="section how" aria-labelledby="how-title">
             <div class="container">
-                <div class="section-head">
-                    <p class="eyebrow">What Luris does</p>
-                    <h2 id="features-title">Your whole active day, in one app</h2>
-                    <p>Steps, routes, workouts and progress, from the data your iPhone and Apple Watch already record in Apple Health.</p>
-                </div>
+                <h2 id="how-title" class="section-title">Up and running in three steps</h2>
+                <ol class="steps">
+                    <li>
+                        <span class="step-num" aria-hidden="true">1</span>
+                        <h3>Connect Apple Health</h3>
+                        <p>Luris reads the activity your iPhone and Apple Watch already record.</p>
+                    </li>
+                    <li>
+                        <span class="step-num" aria-hidden="true">2</span>
+                        <h3>Move</h3>
+                        <p>Steps count themselves. Start a walk or a run, or follow today's session.</p>
+                    </li>
+                    <li>
+                        <span class="step-num" aria-hidden="true">3</span>
+                        <h3>See it add up</h3>
+                        <p>Charts, badges and a weekly leaderboard, ready to share.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
 
-                <article class="feature tint-steps">
-                    <div class="feature-shot">
-                        <img src="img/screens/route-720.webp"
-                             srcset="img/screens/route-480.webp 480w, img/screens/route-720.webp 720w"
-                             sizes="(min-width: 900px) 360px, 90vw" width="720" height="1237" loading="lazy" decoding="async"
-                             alt="A running session in Luris: the route drawn in blue on a map, with time, distance, pace and calories, and Pause and Finish buttons.">
-                    </div>
+        <div class="features" id="features">
+            <div class="container">
+                <section class="feature tint-steps" aria-labelledby="f-day">
+                    <!-- build:route-1 -->
+                    <svg class="route route-track" viewBox="0 0 80 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M40.0 0.0 L44.2 8.3 L48.2 16.7 L51.9 25.0 L55.4 33.3 L58.6 41.7 L61.4 50.0 L63.9 58.3 L66.0 66.7 L67.6 75.0 L68.9 83.3 L69.7 91.7 L70.0 100.0 L69.9 108.3 L69.3 116.7 L68.2 125.0 L66.7 133.3 L64.7 141.7 L62.3 150.0 L59.5 158.3 L56.3 166.7 L52.7 175.0 L48.8 183.3 L44.5 191.7 L40.0 200.0 L39.4 208.3 L38.6 216.7 L37.6 225.0 L36.5 233.3 L35.3 241.7 L34.1 250.0 L32.9 258.3 L31.7 266.7 L30.6 275.0 L29.5 283.3 L28.7 291.7 L28.0 300.0 L27.5 308.3 L27.2 316.7 L27.2 325.0 L27.4 333.3 L28.0 341.7 L28.8 350.0 L29.9 358.3 L31.3 366.7 L33.1 375.0 L35.1 383.3 L37.4 391.7 L40.0 400.0"/></svg><svg class="route route-line" viewBox="0 0 80 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M40.0 0.0 L44.2 8.3 L48.2 16.7 L51.9 25.0 L55.4 33.3 L58.6 41.7 L61.4 50.0 L63.9 58.3 L66.0 66.7 L67.6 75.0 L68.9 83.3 L69.7 91.7 L70.0 100.0 L69.9 108.3 L69.3 116.7 L68.2 125.0 L66.7 133.3 L64.7 141.7 L62.3 150.0 L59.5 158.3 L56.3 166.7 L52.7 175.0 L48.8 183.3 L44.5 191.7 L40.0 200.0 L39.4 208.3 L38.6 216.7 L37.6 225.0 L36.5 233.3 L35.3 241.7 L34.1 250.0 L32.9 258.3 L31.7 266.7 L30.6 275.0 L29.5 283.3 L28.7 291.7 L28.0 300.0 L27.5 308.3 L27.2 316.7 L27.2 325.0 L27.4 333.3 L28.0 341.7 L28.8 350.0 L29.9 358.3 L31.3 366.7 L33.1 375.0 L35.1 383.3 L37.4 391.7 L40.0 400.0"/></svg><span class="waypoint" aria-hidden="true"></span><span class="route-cap route-cap-start" aria-hidden="true"></span>
+                    <!-- /build:route-1 -->
                     <div class="feature-copy">
-                        <p class="eyebrow">GPS walks and runs</p>
-                        <h3>Track every route</h3>
+                        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Steps and activity</p>
+                        <h2 id="f-day">Own your day</h2>
+                        <p>A ring for today's steps, with calories, active minutes, distance and floors beside it. The Activity tab turns your week into trends.</p>
+                        <ul class="checks">
+                            <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Steps and distance straight from Apple Health</li>
+                            <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Your own daily step goal</li>
+                            <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Today compared with yesterday</li>
+                        </ul>
+                    </div>
+                    <div class="stage">
+                        <picture class="device">
+                            <source type="image/avif"
+                                    srcset="/img/screens/activity-480.avif 480w, /img/screens/activity-720.avif 720w, /img/screens/activity-1080.avif 1080w"
+                                    sizes="(min-width: 422px) 270px, 64vw">
+                            <img src="/img/screens/activity-720.webp"
+                                 srcset="/img/screens/activity-480.webp 480w, /img/screens/activity-720.webp 720w, /img/screens/activity-1080.webp 1080w"
+                                 sizes="(min-width: 422px) 270px, 64vw" width="720" height="1469" loading="lazy" decoding="async"
+                                 alt="The Activity tab: today's steps ring at 7,842 with calories, active time, distance and floors each compared with yesterday, recent workouts, and a weekly chart of steps, active time and calories.">
+                        </picture>
+                    </div>
+                </section>
+
+                <section class="feature tint-calories" aria-labelledby="f-route">
+                    <!-- build:route-2 -->
+                    <svg class="route route-track" viewBox="0 0 80 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M40.0 0.0 L34.8 8.3 L31.5 16.7 L29.8 25.0 L29.5 33.3 L30.5 41.7 L32.7 50.0 L35.7 58.3 L39.4 66.7 L43.6 75.0 L48.0 83.3 L52.5 91.7 L56.8 100.0 L60.8 108.3 L64.2 116.7 L66.9 125.0 L68.7 133.3 L69.6 141.7 L69.3 150.0 L67.7 158.3 L64.9 166.7 L60.8 175.0 L55.2 183.3 L48.3 191.7 L40.0 200.0 L43.1 208.3 L44.9 216.7 L45.6 225.0 L45.2 233.3 L43.8 241.7 L41.6 250.0 L38.8 258.3 L35.4 266.7 L31.7 275.0 L27.8 283.3 L23.9 291.7 L20.2 300.0 L16.9 308.3 L14.0 316.7 L11.8 325.0 L10.4 333.3 L10.0 341.7 L10.6 350.0 L12.3 358.3 L15.3 366.7 L19.5 375.0 L25.1 383.3 L31.9 391.7 L40.0 400.0"/></svg><svg class="route route-line" viewBox="0 0 80 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M40.0 0.0 L34.8 8.3 L31.5 16.7 L29.8 25.0 L29.5 33.3 L30.5 41.7 L32.7 50.0 L35.7 58.3 L39.4 66.7 L43.6 75.0 L48.0 83.3 L52.5 91.7 L56.8 100.0 L60.8 108.3 L64.2 116.7 L66.9 125.0 L68.7 133.3 L69.6 141.7 L69.3 150.0 L67.7 158.3 L64.9 166.7 L60.8 175.0 L55.2 183.3 L48.3 191.7 L40.0 200.0 L43.1 208.3 L44.9 216.7 L45.6 225.0 L45.2 233.3 L43.8 241.7 L41.6 250.0 L38.8 258.3 L35.4 266.7 L31.7 275.0 L27.8 283.3 L23.9 291.7 L20.2 300.0 L16.9 308.3 L14.0 316.7 L11.8 325.0 L10.4 333.3 L10.0 341.7 L10.6 350.0 L12.3 358.3 L15.3 366.7 L19.5 375.0 L25.1 383.3 L31.9 391.7 L40.0 400.0"/></svg><span class="waypoint" aria-hidden="true"></span>
+                    <!-- /build:route-2 -->
+                    <div class="feature-copy">
+                        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>GPS walks and runs</p>
+                        <h2 id="f-route">Track every route</h2>
                         <p>Start a walk or a run and Luris draws your route on the map as you go, with live time, distance, pace and calories.</p>
                         <ul class="checks">
-                            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Tracking keeps going with your iPhone locked</li>
-                            <li><svg aria-hidden="true"><use href="#i-check"/></svg>A Live Activity shows the session on the Lock Screen and in the Dynamic Island</li>
-                            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Finished walks and runs are saved to Apple Health as workouts</li>
+                            <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Keeps tracking with your iPhone locked</li>
+                            <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>A Live Activity on the Lock Screen and in the Dynamic Island</li>
+                            <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Saved to Apple Health as a workout</li>
                         </ul>
                     </div>
-                </article>
+                    <div class="stage">
+                        <picture class="device">
+                            <source type="image/avif"
+                                    srcset="/img/screens/route-480.avif 480w, /img/screens/route-720.avif 720w, /img/screens/route-1080.avif 1080w"
+                                    sizes="(min-width: 422px) 270px, 64vw">
+                            <img src="/img/screens/route-720.webp"
+                                 srcset="/img/screens/route-480.webp 480w, /img/screens/route-720.webp 720w, /img/screens/route-1080.webp 1080w"
+                                 sizes="(min-width: 422px) 270px, 64vw" width="720" height="1469" loading="lazy" decoding="async"
+                                 alt="A run in progress: the route drawn in blue on the map through a park, with 32:18 elapsed, 5.42 km, a pace of 5 minutes 57 seconds per kilometre and 388 calories, and Pause and Finish buttons.">
+                        </picture>
+                    </div>
+                </section>
 
-                <article class="feature tint-active">
-                    <div class="feature-shot">
-                        <img src="img/screens/activity-720.webp"
-                             srcset="img/screens/activity-480.webp 480w, img/screens/activity-720.webp 720w"
-                             sizes="(min-width: 900px) 360px, 90vw" width="720" height="1237" loading="lazy" decoding="async"
-                             alt="The Activity tab: today's steps ring with calories, distance and floors compared with yesterday, recent workouts and a weekly chart of steps, active time and calories.">
-                    </div>
+                <section class="feature tint-sleep" aria-labelledby="f-plan">
+                    <!-- build:route-3 -->
+                    <svg class="route route-track" viewBox="0 0 80 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M40.0 0.0 L40.5 8.3 L41.2 16.7 L42.2 25.0 L43.5 33.3 L44.9 41.7 L46.5 50.0 L48.2 58.3 L49.9 66.7 L51.7 75.0 L53.4 83.3 L55.0 91.7 L56.4 100.0 L57.7 108.3 L58.6 116.7 L59.2 125.0 L59.4 133.3 L59.1 141.7 L58.3 150.0 L56.9 158.3 L54.9 166.7 L52.2 175.0 L48.9 183.3 L44.8 191.7 L40.0 200.0 L46.4 208.3 L52.0 216.7 L56.8 225.0 L60.9 233.3 L64.1 241.7 L66.7 250.0 L68.4 258.3 L69.6 266.7 L70.0 275.0 L69.8 283.3 L69.1 291.7 L67.9 300.0 L66.3 308.3 L64.3 316.7 L61.9 325.0 L59.4 333.3 L56.7 341.7 L54.0 350.0 L51.2 358.3 L48.5 366.7 L46.0 375.0 L43.7 383.3 L41.7 391.7 L40.0 400.0"/></svg><svg class="route route-line" viewBox="0 0 80 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M40.0 0.0 L40.5 8.3 L41.2 16.7 L42.2 25.0 L43.5 33.3 L44.9 41.7 L46.5 50.0 L48.2 58.3 L49.9 66.7 L51.7 75.0 L53.4 83.3 L55.0 91.7 L56.4 100.0 L57.7 108.3 L58.6 116.7 L59.2 125.0 L59.4 133.3 L59.1 141.7 L58.3 150.0 L56.9 158.3 L54.9 166.7 L52.2 175.0 L48.9 183.3 L44.8 191.7 L40.0 200.0 L46.4 208.3 L52.0 216.7 L56.8 225.0 L60.9 233.3 L64.1 241.7 L66.7 250.0 L68.4 258.3 L69.6 266.7 L70.0 275.0 L69.8 283.3 L69.1 291.7 L67.9 300.0 L66.3 308.3 L64.3 316.7 L61.9 325.0 L59.4 333.3 L56.7 341.7 L54.0 350.0 L51.2 358.3 L48.5 366.7 L46.0 375.0 L43.7 383.3 L41.7 391.7 L40.0 400.0"/></svg><span class="waypoint" aria-hidden="true"></span>
+                    <!-- /build:route-3 -->
                     <div class="feature-copy">
-                        <p class="eyebrow">Steps and activity</p>
-                        <h3>Your week in motion</h3>
-                        <p>A ring for today's steps, with calories, active minutes, distance and floors beside it. The Activity tab turns your week into trends and lists your recent workouts.</p>
+                        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Weekly plan</p>
+                        <h2 id="f-plan">Train with a plan</h2>
+                        <p>Luris builds a six-week plan sized to how often you train, and lays out every session as a warm-up, the workout and a cool-down.</p>
                         <ul class="checks">
-                            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Steps and distance come straight from Apple Health</li>
-                            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Set your own daily step goal</li>
-                            <li><svg aria-hidden="true"><use href="#i-check"/></svg>See how today compares with yesterday</li>
+                            <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>873 exercises with images and instructions, built into the app</li>
+                            <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Today's session waits on the Home tab</li>
+                            <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Finished workouts saved to Apple Health</li>
                         </ul>
+                        <p class="fine">Luris is not a medical device and does not give medical advice. Check with a doctor before starting a new exercise programme. <a href="/terms.html#health">Health disclaimer</a></p>
                     </div>
-                </article>
+                    <div class="stage">
+                        <picture class="device">
+                            <source type="image/avif"
+                                    srcset="/img/screens/plan-480.avif 480w, /img/screens/plan-720.avif 720w, /img/screens/plan-1080.avif 1080w"
+                                    sizes="(min-width: 422px) 270px, 64vw">
+                            <img src="/img/screens/plan-720.webp"
+                                 srcset="/img/screens/plan-480.webp 480w, /img/screens/plan-720.webp 720w, /img/screens/plan-1080.webp 1080w"
+                                 sizes="(min-width: 422px) 270px, 64vw" width="720" height="1469" loading="lazy" decoding="async"
+                                 alt="The Plan tab: the Lean and Strong plan in week 2 of 6, the days of the week, and today's Full Body Strength session split into a warm-up, the workout and a cool-down.">
+                        </picture>
+                    </div>
+                </section>
 
-                <article class="feature tint-sleep">
-                    <div class="feature-shot">
-                        <img src="img/screens/plan-720.webp"
-                             srcset="img/screens/plan-480.webp 480w, img/screens/plan-720.webp 720w"
-                             sizes="(min-width: 900px) 360px, 90vw" width="720" height="1237" loading="lazy" decoding="async"
-                             alt="The Plan tab: the Lean and Strong plan in week 2 of 6, the days of the week, and today's HIIT Cardio session split into warm-up, workout and cool-down.">
-                    </div>
+                <section class="feature tint-active" aria-labelledby="f-progress">
+                    <!-- build:route-4 -->
+                    <svg class="route route-track" viewBox="0 0 80 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M40.0 0.0 L35.3 8.3 L30.9 16.7 L26.9 25.0 L23.2 33.3 L20.0 41.7 L17.2 50.0 L14.8 58.3 L12.9 66.7 L11.5 75.0 L10.5 83.3 L10.0 91.7 L10.0 100.0 L10.4 108.3 L11.3 116.7 L12.7 125.0 L14.4 133.3 L16.6 141.7 L19.1 150.0 L21.9 158.3 L25.0 166.7 L28.4 175.0 L32.1 183.3 L36.0 191.7 L40.0 200.0 L40.0 208.3 L40.0 216.7 L40.2 225.0 L40.4 233.3 L40.7 241.7 L41.0 250.0 L41.2 258.3 L41.4 266.7 L41.6 275.0 L41.7 283.3 L41.8 291.7 L41.8 300.0 L41.7 308.3 L41.6 316.7 L41.4 325.0 L41.2 333.3 L40.9 341.7 L40.7 350.0 L40.4 358.3 L40.2 366.7 L40.0 375.0 L39.9 383.3 L39.9 391.7 L40.0 400.0"/></svg><svg class="route route-line" viewBox="0 0 80 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M40.0 0.0 L35.3 8.3 L30.9 16.7 L26.9 25.0 L23.2 33.3 L20.0 41.7 L17.2 50.0 L14.8 58.3 L12.9 66.7 L11.5 75.0 L10.5 83.3 L10.0 91.7 L10.0 100.0 L10.4 108.3 L11.3 116.7 L12.7 125.0 L14.4 133.3 L16.6 141.7 L19.1 150.0 L21.9 158.3 L25.0 166.7 L28.4 175.0 L32.1 183.3 L36.0 191.7 L40.0 200.0 L40.0 208.3 L40.0 216.7 L40.2 225.0 L40.4 233.3 L40.7 241.7 L41.0 250.0 L41.2 258.3 L41.4 266.7 L41.6 275.0 L41.7 283.3 L41.8 291.7 L41.8 300.0 L41.7 308.3 L41.6 316.7 L41.4 325.0 L41.2 333.3 L40.9 341.7 L40.7 350.0 L40.4 358.3 L40.2 366.7 L40.0 375.0 L39.9 383.3 L39.9 391.7 L40.0 400.0"/></svg><span class="waypoint" aria-hidden="true"></span>
+                    <!-- /build:route-4 -->
                     <div class="feature-copy">
-                        <p class="eyebrow">Weekly plan</p>
-                        <h3>Train with a plan</h3>
-                        <p>Luris builds a six week plan around the training days you choose, then lays out each session as a warm-up, the workout and a cool-down.</p>
+                        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Progress</p>
+                        <h2 id="f-progress">Progress you can see</h2>
+                        <p>Follow your weight and body fat from Apple Health on clear trend charts, add progress photos, and unlock badges as you go.</p>
                         <ul class="checks">
-                            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Workouts drawn from 873 exercises bundled with the app</li>
-                            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Today's session waits for you on the Home tab</li>
-                            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Completed workouts are saved to Apple Health</li>
+                            <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Progress photos stay on your iPhone</li>
+                            <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>49 badges for steps, distance, workouts, streaks, floors and calories</li>
+                            <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Streaks count the days you reach your step goal</li>
                         </ul>
                     </div>
-                </article>
+                    <div class="stage">
+                        <picture class="device">
+                            <source type="image/avif"
+                                    srcset="/img/screens/progress-480.avif 480w, /img/screens/progress-720.avif 720w, /img/screens/progress-1080.avif 1080w"
+                                    sizes="(min-width: 422px) 270px, 64vw">
+                            <img src="/img/screens/progress-720.webp"
+                                 srcset="/img/screens/progress-480.webp 480w, /img/screens/progress-720.webp 720w, /img/screens/progress-1080.webp 1080w"
+                                 sizes="(min-width: 422px) 270px, 64vw" width="720" height="1469" loading="lazy" decoding="async"
+                                 alt="The Progress tab: a journey at 67 percent with its milestones, and cards for weight down 2.4 kg, body fat down 1.8 percent, strength and measurements.">
+                        </picture>
+                    </div>
+                </section>
 
-                <article class="feature tint-calories">
-                    <div class="feature-shot">
-                        <img src="img/screens/progress-720.webp"
-                             srcset="img/screens/progress-480.webp 480w, img/screens/progress-720.webp 720w"
-                             sizes="(min-width: 900px) 360px, 90vw" width="720" height="1237" loading="lazy" decoding="async"
-                             alt="The Progress tab: a transformation journey at 67 percent with weekly milestones, and focus cards for weight, body fat, strength and measurements.">
-                    </div>
+                <section class="feature tint-gold" aria-labelledby="f-ranks">
+                    <!-- build:route-5 -->
+                    <svg class="route route-track" viewBox="0 0 80 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M40.0 0.0 L36.8 8.3 L33.9 16.7 L31.1 25.0 L28.6 33.3 L26.3 41.7 L24.3 50.0 L22.6 58.3 L21.2 66.7 L20.2 75.0 L19.5 83.3 L19.1 91.7 L19.1 100.0 L19.4 108.3 L20.0 116.7 L21.0 125.0 L22.2 133.3 L23.8 141.7 L25.6 150.0 L27.6 158.3 L29.8 166.7 L32.2 175.0 L34.7 183.3 L37.3 191.7 L40.0 200.0 L43.5 208.3 L47.0 216.7 L50.4 225.0 L53.6 233.3 L56.7 241.7 L59.6 250.0 L62.1 258.3 L64.4 266.7 L66.4 275.0 L67.9 283.3 L69.1 291.7 L69.8 300.0 L70.0 308.3 L69.8 316.7 L69.0 325.0 L67.8 333.3 L66.0 341.7 L63.7 350.0 L61.0 358.3 L57.7 366.7 L53.9 375.0 L49.7 383.3 L45.1 391.7 L40.0 400.0"/></svg><svg class="route route-line" viewBox="0 0 80 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M40.0 0.0 L36.8 8.3 L33.9 16.7 L31.1 25.0 L28.6 33.3 L26.3 41.7 L24.3 50.0 L22.6 58.3 L21.2 66.7 L20.2 75.0 L19.5 83.3 L19.1 91.7 L19.1 100.0 L19.4 108.3 L20.0 116.7 L21.0 125.0 L22.2 133.3 L23.8 141.7 L25.6 150.0 L27.6 158.3 L29.8 166.7 L32.2 175.0 L34.7 183.3 L37.3 191.7 L40.0 200.0 L43.5 208.3 L47.0 216.7 L50.4 225.0 L53.6 233.3 L56.7 241.7 L59.6 250.0 L62.1 258.3 L64.4 266.7 L66.4 275.0 L67.9 283.3 L69.1 291.7 L69.8 300.0 L70.0 308.3 L69.8 316.7 L69.0 325.0 L67.8 333.3 L66.0 341.7 L63.7 350.0 L61.0 358.3 L57.7 366.7 L53.9 375.0 L49.7 383.3 L45.1 391.7 L40.0 400.0"/></svg><span class="waypoint" aria-hidden="true"></span>
+                    <!-- /build:route-5 -->
                     <div class="feature-copy">
-                        <p class="eyebrow">Progress</p>
-                        <h3>Progress you can see</h3>
-                        <p>Follow your weight and body fat from Apple Health on clear trend charts, add progress photos, and unlock badges as you reach new milestones.</p>
+                        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Weekly leaderboard</p>
+                        <h2 id="f-ranks">Climb the ranks</h2>
+                        <p>Join the weekly steps leaderboard in Game Center and see where you stand against everyone taking part. It starts over every week.</p>
                         <ul class="checks">
-                            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Progress photos stay on your iPhone</li>
-                            <li><svg aria-hidden="true"><use href="#i-check"/></svg>49 badges for steps, distance, workouts, streaks, floors and calories</li>
-                            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Streaks count the days you reach your step goal</li>
+                            <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Optional, under your Game Center alias</li>
+                            <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Luris shares one number: your step total for the week</li>
+                            <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Leave at any time</li>
                         </ul>
                     </div>
-                </article>
+                    <div class="stage">
+                        <picture class="device">
+                            <source type="image/avif"
+                                    srcset="/img/screens/leaderboard-480.avif 480w, /img/screens/leaderboard-720.avif 720w, /img/screens/leaderboard-1080.avif 1080w"
+                                    sizes="(min-width: 422px) 270px, 64vw">
+                            <img src="/img/screens/leaderboard-720.webp"
+                                 srcset="/img/screens/leaderboard-480.webp 480w, /img/screens/leaderboard-720.webp 720w, /img/screens/leaderboard-1080.webp 1080w"
+                                 sizes="(min-width: 422px) 270px, 64vw" width="720" height="1469" loading="lazy" decoding="async"
+                                 alt="The weekly steps leaderboard: a podium for the top three, the ranked list below it, and your own row pinned at number 4.">
+                        </picture>
+                    </div>
+                </section>
 
-                <article class="feature tint-gold">
-                    <div class="feature-shot">
-                        <img src="img/screens/leaderboard-720.webp"
-                             srcset="img/screens/leaderboard-480.webp 480w, img/screens/leaderboard-720.webp 720w"
-                             sizes="(min-width: 900px) 360px, 90vw" width="720" height="1237" loading="lazy" decoding="async"
-                             alt="The weekly steps leaderboard: a podium for the top three, the ranked list below it, and your own row highlighted at number 4.">
-                    </div>
+                <section class="feature tint-floors" aria-labelledby="f-share">
+                    <!-- build:route-6 -->
+                    <svg class="route route-track" viewBox="0 0 80 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M40.0 0.0 L40.6 8.3 L40.4 16.7 L39.4 25.0 L37.8 33.3 L35.6 41.7 L33.0 50.0 L30.1 58.3 L27.0 66.7 L23.8 75.0 L20.7 83.3 L17.8 91.7 L15.2 100.0 L13.0 108.3 L11.4 116.7 L10.3 125.0 L10.0 133.3 L10.4 141.7 L11.8 150.0 L14.0 158.3 L17.1 166.7 L21.3 175.0 L26.5 183.3 L32.7 191.7 L40.0 200.0 L34.3 208.3 L29.7 216.7 L26.0 225.0 L23.2 233.3 L21.2 241.7 L20.1 250.0 L19.7 258.3 L19.9 266.7 L20.7 275.0 L21.9 283.3 L23.5 291.7 L25.5 300.0 L27.6 308.3 L29.8 316.7 L32.0 325.0 L34.2 333.3 L36.2 341.7 L37.9 350.0 L39.4 358.3 L40.4 366.7 L41.1 375.0 L41.2 383.3 L40.9 391.7 L40.0 400.0"/></svg><svg class="route route-line" viewBox="0 0 80 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M40.0 0.0 L40.6 8.3 L40.4 16.7 L39.4 25.0 L37.8 33.3 L35.6 41.7 L33.0 50.0 L30.1 58.3 L27.0 66.7 L23.8 75.0 L20.7 83.3 L17.8 91.7 L15.2 100.0 L13.0 108.3 L11.4 116.7 L10.3 125.0 L10.0 133.3 L10.4 141.7 L11.8 150.0 L14.0 158.3 L17.1 166.7 L21.3 175.0 L26.5 183.3 L32.7 191.7 L40.0 200.0 L34.3 208.3 L29.7 216.7 L26.0 225.0 L23.2 233.3 L21.2 241.7 L20.1 250.0 L19.7 258.3 L19.9 266.7 L20.7 275.0 L21.9 283.3 L23.5 291.7 L25.5 300.0 L27.6 308.3 L29.8 316.7 L32.0 325.0 L34.2 333.3 L36.2 341.7 L37.9 350.0 L39.4 358.3 L40.4 366.7 L41.1 375.0 L41.2 383.3 L40.9 391.7 L40.0 400.0"/></svg><span class="waypoint" aria-hidden="true"></span><span class="route-cap route-cap-end" aria-hidden="true"></span>
+                    <!-- /build:route-6 -->
                     <div class="feature-copy">
-                        <p class="eyebrow">Weekly leaderboard</p>
-                        <h3>Climb the ranks</h3>
-                        <p>Join the weekly steps leaderboard in Game Center and see where you stand against everyone taking part. It starts over every week, so there is always a fresh race.</p>
+                        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Share Studio</p>
+                        <h2 id="f-share">Share it your way</h2>
+                        <p>Lay your route and stats over your own photo. Six card designs, sized for stories and feeds.</p>
                         <ul class="checks">
-                            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Joining is optional, and you appear under your Game Center alias</li>
-                            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Luris shares one number: your step total for the week</li>
-                            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Leave at any time from the leaderboard menu</li>
+                            <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Workout, Journey, Streak, Badge, Activity and Route cards</li>
+                            <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Story (9:16) and feed (4:5) sizes</li>
+                            <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Your name and details stay hidden until you choose to show them</li>
                         </ul>
                     </div>
-                </article>
+                    <div class="stage stage-share">
+                        <picture class="device">
+                            <source type="image/avif"
+                                    srcset="/img/screens/share-480.avif 480w, /img/screens/share-720.avif 720w, /img/screens/share-1080.avif 1080w"
+                                    sizes="(min-width: 422px) 250px, 64vw">
+                            <img src="/img/screens/share-720.webp"
+                                 srcset="/img/screens/share-480.webp 480w, /img/screens/share-720.webp 720w, /img/screens/share-1080.webp 1080w"
+                                 sizes="(min-width: 422px) 250px, 64vw" width="720" height="1469" loading="lazy" decoding="async"
+                                 alt="Share Studio editing an Activity card: 7,842 steps with calories, active minutes, distance and floors, in the story size, with buttons to add a photo, save and share.">
+                        </picture>
+                        <picture class="share-card">
+                            <source type="image/avif"
+                                    srcset="/img/screens/share-card-240.avif 240w, /img/screens/share-card-360.avif 360w, /img/screens/share-card-540.avif 540w"
+                                    sizes="150px">
+                            <img src="/img/screens/share-card-360.webp"
+                                 srcset="/img/screens/share-card-240.webp 240w, /img/screens/share-card-360.webp 360w, /img/screens/share-card-540.webp 540w"
+                                 sizes="150px" width="360" height="639" loading="lazy" decoding="async"
+                                 alt="A Streak card made in Share Studio: a 12 day streak with the Luris wordmark.">
+                        </picture>
+                    </div>
+                </section>
             </div>
-        </section>
+        </div>
 
-        <section class="section section-alt" aria-labelledby="more-title">
+        <section class="section also" aria-labelledby="also-title">
             <div class="container">
-                <div class="section-head">
-                    <p class="eyebrow">Also in Luris</p>
-                    <h2 id="more-title">The details that keep you moving</h2>
-                </div>
-                <div class="grid grid-3">
-                    <div class="card tint-heart">
-                        <div class="icon-tile"><svg aria-hidden="true"><use href="#i-heart"/></svg></div>
-                        <h3>Apple Health at the core</h3>
-                        <p>With your permission, Luris reads steps, distance, energy, heart rate, sleep and body metrics from Apple Health, and saves the workouts you finish back to it.</p>
-                    </div>
-                    <div class="card tint-steps">
-                        <div class="icon-tile"><svg aria-hidden="true"><use href="#i-widget"/></svg></div>
+                <h2 id="also-title" class="section-title">Also in Luris</h2>
+                <ul class="also-list">
+                    <li>
+                        <svg class="also-icon" aria-hidden="true" focusable="false"><use href="#i-widget"/></svg>
                         <h3>Steps widget</h3>
-                        <p>Today's steps, your goal and your streak on the Home Screen or the Lock Screen, without opening the app.</p>
-                    </div>
-                    <div class="card tint-active">
-                        <div class="icon-tile"><svg aria-hidden="true"><use href="#i-live"/></svg></div>
+                        <p>Today's steps and your goal on the Home Screen or the Lock Screen, without opening the app.</p>
+                    </li>
+                    <li>
+                        <svg class="also-icon" aria-hidden="true" focusable="false"><use href="#i-live"/></svg>
                         <h3>Live Activity</h3>
                         <p>A walk or run in progress stays on the Lock Screen and in the Dynamic Island, with the timer, distance and pace.</p>
-                    </div>
-                    <div class="card tint-sleep">
-                        <div class="icon-tile"><svg aria-hidden="true"><use href="#i-dumbbell"/></svg></div>
-                        <h3>873 exercises</h3>
-                        <p>A library of exercises with step by step instructions ships inside the app and supplies every workout in your plan.</p>
-                    </div>
-                    <div class="card tint-gold">
-                        <div class="icon-tile"><svg aria-hidden="true"><use href="#i-trophy"/></svg></div>
-                        <h3>Achievements</h3>
-                        <p>Badges for lifetime steps, big days, distance, workouts, active minutes, streaks, floors and calories.</p>
-                    </div>
-                    <div class="card tint-floors">
-                        <div class="icon-tile"><svg aria-hidden="true"><use href="#i-globe"/></svg></div>
-                        <h3>Your units, your language</h3>
-                        <p>Kilometers or miles, kilograms or pounds, picked from your region and changeable in Profile. Luris speaks 16 languages.</p>
-                    </div>
-                </div>
+                    </li>
+                    <li>
+                        <svg class="also-icon" aria-hidden="true" focusable="false"><use href="#i-ruler"/></svg>
+                        <h3>Your units</h3>
+                        <p>Kilometres or miles, and kilograms or pounds, set separately and picked from your region to start with.</p>
+                    </li>
+                    <li>
+                        <svg class="also-icon" aria-hidden="true" focusable="false"><use href="#i-watch"/></svg>
+                        <h3>Apple Watch activity</h3>
+                        <p>No watch app to install. The steps and activity your Apple Watch records reach Luris through Apple Health.</p>
+                    </li>
+                    <li>
+                        <svg class="also-icon" aria-hidden="true" focusable="false"><use href="#i-user"/></svg>
+                        <h3>No account</h3>
+                        <p>Nothing to sign up for. Sign in with Apple is optional and only used to greet you by name.</p>
+                    </li>
+                    <li>
+                        <svg class="also-icon" aria-hidden="true" focusable="false"><use href="#i-globe"/></svg>
+                        <h3>16 languages</h3>
+                        <p class="languages"><span lang="en">English</span>, <span lang="de">Deutsch</span>, <span lang="es">Español</span>, <span lang="fr">Français</span>, <span lang="it">Italiano</span>, <span lang="ja">日本語</span>, <span lang="ko">한국어</span>, <span lang="nl">Nederlands</span>, <span lang="pl">Polski</span>, <span lang="pt-BR">Português (Brasil)</span>, <span lang="pt-PT">Português (Portugal)</span>, <span lang="ro">Română</span>, <span lang="sv">Svenska</span>, <span lang="tr">Türkçe</span>, <span lang="zh-Hans">简体中文</span> and <span lang="zh-Hant">繁體中文</span>.</p>
+                    </li>
+                </ul>
             </div>
         </section>
 
-        <section class="section" id="privacy" aria-labelledby="privacy-title">
+        <section class="section privacy" id="privacy" aria-labelledby="privacy-title">
             <div class="container">
                 <div class="section-head">
-                    <p class="eyebrow">Privacy</p>
-                    <h2 id="privacy-title">Your health data stays on your iPhone</h2>
-                    <p>Luris runs no servers of its own. Your workouts, routes and progress photos are stored on your device.</p>
+                    <h2 id="privacy-title" class="section-title">Your health data stays on your iPhone</h2>
+                    <p>Luris runs no servers of its own. This is what stays on your iPhone, and exactly what can leave it.</p>
                 </div>
-                <div class="promise-grid">
-                    <div class="card tint-steps">
-                        <div class="icon-tile"><svg aria-hidden="true"><use href="#i-user"/></svg></div>
-                        <h3>No account needed</h3>
-                        <p>There is nothing to sign up for. Sign in with Apple is optional and only used to greet you by name.</p>
-                    </div>
-                    <div class="card tint-active">
-                        <div class="icon-tile"><svg aria-hidden="true"><use href="#i-shield"/></svg></div>
-                        <h3>No ads, no analytics</h3>
-                        <p>The app contains no third-party tracking libraries, and your health data is never used for advertising.</p>
-                    </div>
-                    <div class="card tint-gold">
-                        <div class="icon-tile"><svg aria-hidden="true"><use href="#i-podium"/></svg></div>
-                        <h3>One number on the leaderboard</h3>
-                        <p>If you join, Luris sends Game Center your weekly step total and nothing else. If you never join, nothing is sent.</p>
-                    </div>
+                <div class="ledger">
+                    <section class="ledger-col ledger-stays" aria-labelledby="stays-title">
+                        <h3 id="stays-title"><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>Stays on your iPhone</h3>
+                        <ul>
+                            <li>Everything Luris reads from Apple Health</li>
+                            <li>Your routes, workouts and progress photos</li>
+                            <li>Your profile, plan and settings</li>
+                        </ul>
+                    </section>
+                    <section class="ledger-col ledger-leaves" aria-labelledby="leaves-title">
+                        <h3 id="leaves-title"><svg aria-hidden="true" focusable="false"><use href="#i-out"/></svg>Leaves only when you choose, or to Apple</h3>
+                        <ul>
+                            <li>Your weekly step total, if you join the leaderboard: to Game Center, under your alias</li>
+                            <li>One location, once, so Apple can tell Luris your country and pick kilometres or miles</li>
+                            <li>Map requests to Apple Maps while a map is on screen</li>
+                            <li>What Sign in with Apple needs, if you use it</li>
+                        </ul>
+                    </section>
                 </div>
-                <p class="promise-foot">Read the full <a href="privacy.html">privacy policy</a>.</p>
+                <p class="ledger-foot">Nothing is sent to the developer. No account, no ads, no analytics. Read the full <a href="/privacy.html">privacy policy</a> and the <a href="/privacy.html#consumer-health-data">consumer health data privacy policy</a>.</p>
+            </div>
+        </section>
+
+        <section class="section questions" id="questions" aria-labelledby="questions-title">
+            <div class="container questions-grid">
+                <div class="questions-head">
+                    <h2 id="questions-title" class="section-title">Questions</h2>
+                    <p>More answers, and a direct line to the developer, on the <a href="/support.html">support page</a>.</p>
+                </div>
+                <div class="qa">
+                    <details>
+                        <summary>Do I need an Apple Watch?</summary>
+                        <p>No. Luris uses the steps and distance your iPhone records. If you wear an Apple Watch, its steps and activity reach Luris through Apple Health too.</p>
+                    </details>
+                    <details>
+                        <summary>Which iPhones does Luris work on?</summary>
+                        <p>Any iPhone with iOS 26.2 or later. There is no iPad or Apple Watch app.</p>
+                    </details>
+                    <details>
+                        <summary>Do I need an account?</summary>
+                        <p>No. There is nothing to sign up for. Sign in with Apple is optional and only used to greet you by name.</p>
+                    </details>
+                    <details>
+                        <summary>Can I track bike rides?</summary>
+                        <p>No. GPS sessions in Luris are walks and runs.</p>
+                    </details>
+                    <details>
+                        <summary>Which languages does Luris speak?</summary>
+                        <p>Sixteen: English, German, Spanish, French, Italian, Japanese, Korean, Dutch, Polish, Portuguese (Brazil), Portuguese (Portugal), Romanian, Swedish, Turkish, and Chinese (Simplified and Traditional).</p>
+                    </details>
+                    <details>
+                        <summary>How do I delete my data?</summary>
+                        <p>Your data is on your iPhone, and the developer holds no copy. The support page shows <a href="/support.html#delete">how to delete it</a>, including workouts Luris saved to Apple Health.</p>
+                    </details>
+                </div>
             </div>
         </section>
 
         <div class="container cta-wrap">
             <section class="panel cta" aria-labelledby="cta-title">
-                <img src="img/app-icon-256.webp" srcset="img/app-icon-128.webp 128w, img/app-icon-256.webp 256w" sizes="104px" width="104" height="104" alt="Luris app icon" loading="lazy" decoding="async">
+                <img class="cta-icon" src="/img/app-icon-256.webp" srcset="/img/app-icon-128.webp 128w, /img/app-icon-256.webp 256w" sizes="96px" width="96" height="96" alt="" loading="lazy" decoding="async">
                 <h2 id="cta-title">Start moving with Luris</h2>
                 <p>Steps, routes, workouts and progress, together on your iPhone.</p>
-                <div class="hero-actions">
-                    <a class="btn btn-store" href="https://apps.apple.com/app/idXXXXXXXXXX">
-                        <svg aria-hidden="true"><use href="#i-apple"/></svg>
-                        <span><small>Download on the</small><strong>App Store</strong></span>
-                    </a>
+                <!-- build:final-cta -->
+                <div class="store-state">
+                    <p class="soon"><svg aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>Coming soon to the App Store</p>
+                    <p class="requirement">For iPhone with iOS 26.2 or later.</p>
                 </div>
-                <p class="hero-note">Requires iOS 26.2 or later.</p>
+                <!-- /build:final-cta -->
             </section>
         </div>
     </main>
 
+    <!-- build:footer -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a class="brand" href="./" aria-label="Luris home">
-                        <img src="img/luris-mark-96.png" width="34" height="34" alt="">
-                        <span class="wordmark">LURIS</span>
-                    </a>
+                    <a class="brand" href="/" aria-label="Luris home"><img src="/img/luris-mark-96.png" width="32" height="32" alt=""><svg class="wordmark" viewBox="0 0 6679 1493" aria-hidden="true" focusable="false"><use href="#wordmark"/></svg></a>
                     <p>Steps, GPS walks and runs, workouts and progress for iPhone, built on Apple Health.</p>
                 </div>
                 <nav class="footer-col" aria-labelledby="footer-luris">
                     <h2 id="footer-luris">Luris</h2>
                     <ul>
-                        <li><a href="./#features">Features</a></li>
-                        <li><a href="./#privacy">Privacy</a></li>
-                        <li><a href="https://apps.apple.com/app/idXXXXXXXXXX">App Store</a></li>
+                        <li><a href="/#features">Features</a></li>
+                        <li><a href="/#privacy">Privacy</a></li>
+                        <li><a href="/#questions">Questions</a></li>
                     </ul>
                 </nav>
                 <nav class="footer-col" aria-labelledby="footer-legal">
                     <h2 id="footer-legal">Legal</h2>
                     <ul>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="terms.html">Terms of Use</a></li>
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
+                        <li><a href="/terms.html">Terms of Use</a></li>
+                        <li><a href="/privacy.html#consumer-health-data">Consumer Health Data Privacy</a></li>
                     </ul>
                 </nav>
                 <nav class="footer-col" aria-labelledby="footer-support">
                     <h2 id="footer-support">Support</h2>
                     <ul>
-                        <li><a href="support.html">Help and FAQ</a></li>
+                        <li><a href="/support.html">Help and questions</a></li>
                         <li><a href="mailto:iosallapps@gmail.com">iosallapps@gmail.com</a></li>
                     </ul>
                 </nav>
+                <section class="footer-col footer-dev" aria-labelledby="footer-dev">
+                    <h2 id="footer-dev">Developer</h2>
+                    <p>Cirjan Darius<br>Independent developer, Romania<br><a href="mailto:iosallapps@gmail.com">iosallapps@gmail.com</a></p>
+                </section>
             </div>
+            <p class="footer-health">Luris is not a medical device and does not give medical advice. Check with a doctor before starting a new exercise programme. <a href="/terms.html#health">Read the health disclaimer</a>.</p>
             <div class="footer-bottom">
-                <span>&copy; 2026 Luris</span>
-                <span>Apple Health, Game Center and App Store are trademarks of Apple Inc.</span>
+                <span>&copy; 2026 Cirjan Darius</span>
+                <span class="trademarks">Apple, Apple Watch, App Store, Dynamic Island, iPad, iPhone and Live Activities are trademarks of Apple Inc., registered in the U.S. and other countries. Apple Health is a trademark of Apple Inc.</span>
             </div>
         </div>
     </footer>
+    <!-- /build:footer -->
 </body>
 </html>
