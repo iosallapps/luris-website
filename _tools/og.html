@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- The social preview (og-image.jpg, 1200x630). Rendered by `node _tools/shoot.mjs og`.
+     Evergreen on purpose: no "Coming soon", no badge, nothing that goes stale in caches. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Luris social image</title>
+<style>
+    * { box-sizing: border-box; margin: 0; }
+    html, body { width: 1200px; height: 630px; overflow: hidden; }
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+        color: #fff; -webkit-font-smoothing: antialiased;
+        background:
+            radial-gradient(55% 75% at 8% 0%, rgba(46, 123, 255, 0.42), transparent 70%),
+            radial-gradient(45% 60% at 100% 100%, rgba(46, 123, 255, 0.22), transparent 70%),
+            linear-gradient(180deg, #0A0F1A 0%, #141C2B 100%);
+        position: relative;
+    }
+    .copy { position: absolute; left: 80px; top: 92px; width: 620px; }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .brand img { width: 56px; height: 56px; }
+    .brand svg { width: 116px; height: 26px; }
+    .eyebrow { margin-top: 44px; display: flex; align-items: center; gap: 12px; font-size: 24px; font-weight: 600; color: #8CBBFF; }
+    .eyebrow i { width: 12px; height: 12px; border-radius: 50%; background: #5BA4FF; box-shadow: 0 0 0 5px rgba(91, 164, 255, 0.22); }
+    h1 { margin-top: 18px; font-size: 76px; line-height: 1.02; font-weight: 800; letter-spacing: -0.035em; }
+    h1 span { background: linear-gradient(90deg, #5BA4FF, #2E7BFF); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .facts { margin-top: 30px; display: flex; gap: 10px; }
+    .facts b { font-weight: 500; font-size: 19px; color: rgba(255, 255, 255, 0.86); padding: 8px 14px; border-radius: 999px; background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.14); }
+    .phones { position: absolute; right: 64px; top: 58px; display: flex; gap: 20px; align-items: flex-start; }
+    .phones img:first-child { width: 250px; }
+    .phones img:last-child { width: 196px; margin-top: 70px; }
+</style>
+</head>
+<body>
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <linearGradient id="wordmark-gradient" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5BA4FF"/><stop offset="1" stop-color="#2E7BFF"/></linearGradient>
+        </defs>
+    </svg>
+    <div class="copy">
+        <div class="brand">
+            <img src="/img/luris-mark-96.png" alt="">
+            <svg viewBox="0 0 6679 1493" id="wm"></svg>
+        </div>
+        <p class="eyebrow"><i></i>Step counter and GPS run tracker for iPhone</p>
+        <h1>Every step, every route, <span>one app.</span></h1>
+        <div class="facts"><b>Built on Apple Health</b><b>No account</b><b>No ads or tracking</b></div>
+    </div>
+    <div class="phones">
+        <img src="/img/screens/home-1080.webp" alt="">
+        <img src="/img/screens/route-720.webp" alt="">
+    </div>
+    <script>
+        // the outlined wordmark, from the same fragment every page uses
+        fetch('/_tools/fragments/wordmark.svg').then((r) => r.text()).then((symbol) => {
+            const path = symbol.match(/<path[^>]*\/>/)[0];
+            document.getElementById('wm').innerHTML = path;
+        });
+    </script>
+</body>
+</html>
