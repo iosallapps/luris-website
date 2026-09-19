@@ -16,14 +16,14 @@
     <!-- /build:head -->
     <!-- build:meta -->
     <title>Luris Support: Help and Questions</title>
-    <meta name="description" content="Get help with Luris: contact the developer, and answers about Apple Health, GPS walks and runs, the Game Center leaderboard, units, supported iPhones and deleting your data.">
+    <meta name="description" content="Get help with Luris: contact the developer, and answers about Apple Health, GPS walks, runs and rides, the Game Center leaderboard, units, supported iPhones and deleting your data.">
     <link rel="canonical" href="https://lurisapp.com/support.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Luris">
     <meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://lurisapp.com/support.html">
     <meta property="og:title" content="Luris Support: Help and Questions">
-    <meta property="og:description" content="Contact the developer and find answers about Apple Health, GPS walks and runs, the leaderboard and your data.">
+    <meta property="og:description" content="Contact the developer and find answers about Apple Health, GPS walks, runs and rides, the leaderboard and your data.">
     <meta property="og:image" content="https://lurisapp.com/og-image.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
@@ -31,7 +31,7 @@
     <meta property="og:image:alt" content="Luris on two iPhones, today&#x27;s steps ring and a run drawn on the map, beside the words Every step, every route, one app.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Luris Support: Help and Questions">
-    <meta name="twitter:description" content="Contact the developer and find answers about Apple Health, GPS walks and runs, the leaderboard and your data.">
+    <meta name="twitter:description" content="Contact the developer and find answers about Apple Health, GPS walks, runs and rides, the leaderboard and your data.">
     <meta name="twitter:image" content="https://lurisapp.com/og-image.jpg">
     <meta name="twitter:image:alt" content="Luris on two iPhones, today&#x27;s steps ring and a run drawn on the map, beside the words Every step, every route, one app.">
     <!-- /build:meta -->
@@ -89,7 +89,7 @@
             <h2 id="faq-index-title">Questions on this page</h2>
             <ol>
                 <li><a href="#steps">Why are my steps missing or showing zero?</a></li>
-                <li><a href="#location">How do I track a walk or a run, and why is my route not recorded?</a></li>
+                <li><a href="#location">How do I track a walk, a run or a bike ride, and why is my route not recorded?</a></li>
                 <li><a href="#leaderboard">How does the leaderboard work, and why does it need Game Center?</a></li>
                 <li><a href="#delete">How do I delete my data?</a></li>
                 <li><a href="#devices">Which devices and iOS versions are supported?</a></li>
@@ -107,13 +107,15 @@
                     <li>Apple does not tell apps when read access is switched off, so a category you turned off looks to Luris exactly like a day with no activity. If numbers are zero while Health has data, this is almost always the reason.</li>
                     <li>Steps from an Apple Watch or another app appear once they have synced to Health, which can take a few minutes.</li>
                 </ol>
+                <p>Luris reads steps, walking and running distance, flights climbed, active energy, exercise minutes, sleep, weight and body fat percentage from Health, and nothing else. It saves the walks, runs, bike rides and workouts you finish to Health, with the active energy you burned, the walking and running distance of your walks and runs, and the cycling distance of your rides. It never writes your body weight.</p>
             </section>
 
             <section class="faq-item" id="location" aria-labelledby="location-title">
-                <h2 id="location-title">How do I track a walk or a run, and why is my route not recorded?</h2>
-                <p>Start a session from <strong>Walk &amp; Run</strong> on the Home tab and pick Walking or Running. Luris asks for your location the first time, so it can draw your route and measure distance and pace.</p>
+                <h2 id="location-title">How do I track a walk, a run or a bike ride, and why is my route not recorded?</h2>
+                <p>Start a session from <strong>Walk, Run &amp; Ride</strong> on the Home tab and pick Walking, Running or Cycling. Luris asks for your location the first time, so it can draw your route and measure your distance, and your pace on a walk or run or your speed on a ride, in km/h or mph.</p>
                 <p>If you declined, Luris shows "Location access is off, so your route can't be recorded." To fix it, go to Settings, Privacy &amp; Security, Location Services, Luris, choose <strong>While Using the App</strong> and turn on <strong>Precise Location</strong>.</p>
-                <p>Tracking keeps going when you lock your iPhone, and a Live Activity shows the session on the Lock Screen. GPS is most accurate outdoors with a clear view of the sky, so the first few seconds indoors or between tall buildings can be less accurate.</p>
+                <p>If Precise Location is off, Luris shows "Precise Location is off, so your route and distance can't be measured." An approximate location is too coarse to measure a route. Tap <strong>Use Precise Location</strong> and allow it in the prompt iOS shows. Luris then gets precise location for that session, and your setting stays as it is.</p>
+                <p>Tracking keeps going when you lock your iPhone, and a Live Activity shows the session on the Lock Screen. GPS is most accurate outdoors with a clear view of the sky, so the first few seconds indoors or between tall buildings can be less accurate. On a bike, keep your iPhone in a pocket, a bag or a secure mount, and do not handle it while riding.</p>
             </section>
 
             <section class="faq-item" id="leaderboard" aria-labelledby="leaderboard-title">
@@ -130,14 +132,19 @@
 
             <section class="faq-item" id="delete" aria-labelledby="delete-title">
                 <h2 id="delete-title">How do I delete my data?</h2>
-                <p>Luris keeps your data on your iPhone and the developer holds no copy of it, so there is nothing to delete on our side. To remove it:</p>
+                <p>Luris keeps your data on your iPhone and the developer holds no copy of it, so there is nothing to delete on our side. You can delete it in the app, in <strong>Profile</strong>, <strong>Your data</strong>:</p>
                 <ul>
-                    <li><strong>Everything Luris stored</strong>, including your profile, workouts, routes and progress photos: delete the app. Touch and hold the Luris icon, tap Remove App, then Delete App.</li>
-                    <li><strong>Workouts Luris saved to Apple Health</strong> stay in Health until you remove them. In the Health app, tap your profile picture, then Apps, then Luris, and choose Delete All Data from "Luris".</li>
-                    <li><strong>The leaderboard</strong>: leave it from the leaderboard menu before you delete the app. A score already posted stays until the weekly reset.</li>
-                    <li><strong>Sign in with Apple</strong>, if you used it: go to Settings, your name, Sign-In &amp; Security, Sign in with Apple, Luris, and stop using it.</li>
+                    <li><strong>Delete All Data</strong> deletes everything Luris keeps on your iPhone, for good: your profile, goals and plan, your workouts, walks, runs and rides, your activity history, habits, challenges, achievements, transformation journey and progress photos, your leaderboard membership and public name, the Sign in with Apple ID and name saved on your iPhone, your settings and the widget's data, and any notifications and Live Activity. Luris then starts again from the welcome screen.</li>
+                    <li><strong>Delete Account</strong>, shown when you are signed in with Apple, deletes the same data and signs you out. Luris has no account on a server: Sign in with Apple only keeps your Apple user ID and name on your iPhone, and no tokens are stored or sent. To also remove Luris from your Apple Account, go to Settings, your name, Sign-In &amp; Security, Sign in with Apple, Luris, and stop using it.</li>
                 </ul>
-                <p>Share cards you saved to your photo library stay in Photos. The <a href="/privacy.html">privacy policy</a> has the full details.</p>
+                <p>These stay, because Luris does not manage them:</p>
+                <ul>
+                    <li><strong>What Luris saved to Apple Health</strong>, such as your walks, runs, rides and workouts. In the Health app, tap your profile picture, then Apps, then Luris, and choose Delete All Data from "Luris".</li>
+                    <li><strong>Scores already posted to Game Center.</strong> Game Center does not let apps delete them, so this week's entry stays on the board until the weekly reset.</li>
+                    <li><strong>Permissions in iOS Settings</strong>, such as Health and location access. Change them in Settings, Privacy &amp; Security.</li>
+                    <li><strong>Share cards</strong> you saved to your photo library, which stay in Photos.</li>
+                </ul>
+                <p>Deleting the app also removes what Luris stored on your iPhone, but the Sign in with Apple details can survive it, so use Delete All Data first. The <a href="/privacy.html#retention">privacy policy</a> has the full details.</p>
             </section>
 
             <section class="faq-item" id="devices" aria-labelledby="devices-title">
@@ -147,7 +154,7 @@
 
             <section class="faq-item" id="units" aria-labelledby="units-title">
                 <h2 id="units-title">How do I switch between kilometres and miles?</h2>
-                <p>Luris picks units from your region. To change them, open <strong>Profile</strong> and go to <strong>Preferences</strong>. Distance switches distance and pace between kilometres and miles. Weight switches body weight, height and measurements between kilograms and centimetres, or pounds, feet and inches.</p>
+                <p>Luris picks units from your region. To change them, open <strong>Profile</strong> and go to <strong>Preferences</strong>. Distance switches distance and pace between kilometres and miles, and speed between km/h and mph. Weight switches body weight, height and measurements between kilograms and centimetres, or pounds, feet and inches.</p>
             </section>
         </div>
     </main>
@@ -158,7 +165,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a class="brand" href="/" aria-label="Luris home"><img src="/img/luris-mark-96.png" width="32" height="32" alt=""><svg class="wordmark" viewBox="0 0 6679 1493" aria-hidden="true" focusable="false"><use href="#wordmark"/></svg></a>
-                    <p>Steps, GPS walks and runs, workouts and progress for iPhone, built on Apple Health.</p>
+                    <p>Steps, GPS walks, runs and rides, workouts and progress for iPhone, built on Apple Health.</p>
                 </div>
                 <nav class="footer-col" aria-labelledby="footer-luris">
                     <h2 id="footer-luris">Luris</h2>
