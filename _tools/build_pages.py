@@ -57,18 +57,19 @@ PAGES = {
     "index.html": {
         "path": "/", "nav": None, "og_type": "website",
         "title": f"{APP_NAME} for iPhone",
-        "description": "Luris counts your steps from Apple Health, maps your walks and runs with GPS "
-                       "and builds a six-week workout plan from 873 exercises. No account, no ads.",
-        "social": "Steps, GPS walks and runs, a six-week plan and progress you can see, built on Apple Health.",
+        "description": "Luris counts your steps from Apple Health, maps your walks, runs and bike rides "
+                       "with GPS and builds a six-week plan from 873 exercises. No account, no ads.",
+        "social": "Steps, GPS walks, runs and rides, a six-week plan and progress you can see, built on "
+                  "Apple Health.",
     },
     "support.html": {
         "path": "/support.html", "nav": "support", "og_type": "website",
         "title": "Luris Support: Help and Questions",
         "description": "Get help with Luris: contact the developer, and answers about Apple Health, "
-                       "GPS walks and runs, the Game Center leaderboard, units, supported iPhones and "
-                       "deleting your data.",
-        "social": "Contact the developer and find answers about Apple Health, GPS walks and runs, the "
-                  "leaderboard and your data.",
+                       "GPS walks, runs and rides, the Game Center leaderboard, units, supported iPhones "
+                       "and deleting your data.",
+        "social": "Contact the developer and find answers about Apple Health, GPS walks, runs and rides, "
+                  "the leaderboard and your data.",
     },
     "privacy.html": {
         "path": "/privacy.html", "nav": None, "og_type": "article",
@@ -82,9 +83,10 @@ PAGES = {
         "path": "/terms.html", "nav": None, "og_type": "article",
         "title": "Luris Terms of Use",
         "description": "The terms for using Luris, the fitness tracker for iPhone: your licence, the "
-                       "health and fitness disclaimer, safety on walks and runs and the leaderboard rules.",
-        "social": "Your licence, the health and fitness disclaimer, safety on walks and runs and the "
-                  "leaderboard rules.",
+                       "health and fitness disclaimer, safety on walks, runs and rides and the leaderboard "
+                       "rules.",
+        "social": "Your licence, the health and fitness disclaimer, safety on walks, runs and rides and "
+                  "the leaderboard rules.",
     },
     "404.html": {
         "path": None, "nav": None, "og_type": None, "robots": "noindex",
@@ -313,7 +315,8 @@ def footer(state, trademarks, nav=None):
         '            <div class="footer-grid">\n'
         '                <div class="footer-brand">\n'
         f'                    {brand()}\n'
-        '                    <p>Steps, GPS walks and runs, workouts and progress for iPhone, built on Apple Health.</p>\n'
+        '                    <p>Steps, GPS walks, runs and rides, workouts and progress for iPhone, built on '
+        'Apple Health.</p>\n'
         '                </div>\n'
         '                <nav class="footer-col" aria-labelledby="footer-luris">\n'
         '                    <h2 id="footer-luris">Luris</h2>\n'
@@ -421,13 +424,13 @@ def jsonld(state):
         "url": f"{ORIGIN}/",
         "description": PAGES["index.html"]["description"],
         "applicationCategory": "HealthApplication",
-        "applicationSubCategory": "Step counter and GPS walk and run tracker",
+        "applicationSubCategory": "Step counter and GPS walk, run and ride tracker",
         "operatingSystem": "iOS 26.2 or later",
         "availableOnDevice": "iPhone",
         "inLanguage": LANGUAGES,
         "featureList": [
             "Steps and activity from Apple Health",
-            "GPS walk and run tracking with a map",
+            "GPS walk, run and bike ride tracking with a map",
             "Six-week workout plan",
             "873 exercises with images",
             "Weight and body fat trend charts and progress photos",

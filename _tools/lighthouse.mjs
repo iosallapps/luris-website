@@ -49,7 +49,7 @@ function serve() {
 const live = process.argv[2];
 const server = live ? null : await serve();
 const base = live ? live.replace(/\/$/, '') : `http://127.0.0.1:${server.address().port}`;
-const pages = [['home', '/'], ['support', '/support.html'], ['privacy', '/privacy.html'], ['terms', '/terms.html'], ['404', '/404.html']];
+const pages = [['home', '/'], ['support', '/support.html'], ['privacy', '/privacy.html'], ['terms', '/terms.html'], ['404', live ? '/no-such-page-for-lighthouse' : '/404.html']];
 fs.mkdirSync(OUT, { recursive: true });
 
 const chrome = await chromeLauncher.launch({

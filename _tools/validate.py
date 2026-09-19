@@ -32,10 +32,11 @@ ORIGIN = "https://lurisapp.com"
 PAGES = ["index.html", "support.html", "privacy.html", "terms.html", "404.html"]
 MARKETING = {"index.html", "support.html", "404.html"}
 
-# the claims register's "never" list (website brief, section 2 and 7.9)
+# the claims register's "never" list (website brief, section 2 and 7.9). "cycling" was on it
+# until the app shipped GPS bike rides, which Apple Health stores as cycling workouts.
 NEVER = [
     (r"\bfree\b", re.I), (r"\bprices?\b|\bpricing\b", re.I), (r"\bsubscri", re.I), (r"\bpremium\b", re.I),
-    (r"\btrials?\b", re.I), (r"\bPro\b", 0), (r"\bfriends?\b", re.I), (r"\bcycling\b|\bcyclists?\b", re.I),
+    (r"\btrials?\b", re.I), (r"\bPro\b", 0), (r"\bfriends?\b", re.I),
     (r"\bhiking\b|\bhikes?\b", re.I), (r"heart rate", re.I), (r"#1\b", 0), (r"\bbest\b", re.I),
     (r"\bawards?\b|award-winning", re.I), (r"\bratings?\b|\bstars?\b", re.I), (r"\breviews?\b", re.I),
     (r"\bAndroid\b", re.I), (r"Google Play", re.I), (r"\bcoach", re.I), (r"\bAI\b", 0),
