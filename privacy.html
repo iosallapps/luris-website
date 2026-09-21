@@ -16,14 +16,14 @@
     <!-- /build:head -->
     <!-- build:meta -->
     <title>Luris Privacy Policy</title>
-    <meta name="description" content="How Luris handles your data: health data stays on your iPhone, no servers, no analytics, no advertising and no tracking. What goes to Apple for Game Center, Maps and Sign in with Apple, and nothing to the developer.">
+    <meta name="description" content="How Luris handles your data: health data stays on your iPhone, no servers, no analytics, no advertising and no tracking. What goes to Apple for Game Center, Maps and Sign in with Apple, and what the purchase service sees for Luris Pro.">
     <link rel="canonical" href="https://lurisapp.com/privacy.html">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Luris">
     <meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://lurisapp.com/privacy.html">
     <meta property="og:title" content="Luris Privacy Policy">
-    <meta property="og:description" content="Health data stays on your iPhone. What goes to Apple, and nothing to the developer.">
+    <meta property="og:description" content="Health data stays on your iPhone. What goes to Apple, and what the purchase service sees.">
     <meta property="og:image" content="https://lurisapp.com/og-image.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
@@ -31,7 +31,7 @@
     <meta property="og:image:alt" content="Luris on two iPhones, today&#x27;s steps ring and a run drawn on the map, beside the words Every step, every route, one app.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Luris Privacy Policy">
-    <meta name="twitter:description" content="Health data stays on your iPhone. What goes to Apple, and nothing to the developer.">
+    <meta name="twitter:description" content="Health data stays on your iPhone. What goes to Apple, and what the purchase service sees.">
     <meta name="twitter:image" content="https://lurisapp.com/og-image.jpg">
     <meta name="twitter:image:alt" content="Luris on two iPhones, today&#x27;s steps ring and a run drawn on the map, beside the words Every step, every route, one app.">
     <!-- /build:meta -->
@@ -82,11 +82,14 @@
           <p><strong>The short version.</strong> Luris keeps your health and fitness data on your iPhone. We, the developer,
           run no servers and never receive your health data, your workouts, your routes or your photos. The app contains
           no analytics, no advertising and no tracking. You can delete everything Luris keeps on your iPhone from inside
-          the app (<a href="#retention">section 13</a>).</p>
-          <p>A few things can leave your iPhone, and all of them go to Apple: your weekly step total, only if you join the
+          the app (<a href="#retention">section 14</a>).</p>
+          <p>A few things can leave your iPhone. These go to Apple: your weekly step total, only if you join the
           Game Center leaderboard; one location, once, so that Apple's map service can tell Luris which country you are in
           and Luris can choose kilometres or miles; map requests while a map is on screen; and, if you use Sign in with Apple,
-          what that sign-in needs. <a href="#connections">Section 11</a> lists every connection the app makes.</p>
+          what that sign-in needs. One thing goes to a company other than Apple: to know whether you have Luris Pro, the
+          app asks the purchase service RevenueCat, which receives a random identifier, technical details about your
+          iPhone and your Luris Pro purchases, and never your health, activity, location or profile data
+          (<a href="#purchases">section 10</a>). <a href="#connections">Section 12</a> lists every connection the app makes.</p>
         </div>
 
         <nav class="toc" aria-labelledby="toc-title">
@@ -101,6 +104,7 @@
             <li><a href="#leaderboard">The leaderboard and Game Center</a></li>
             <li><a href="#siwa">Sign in with Apple</a></li>
             <li><a href="#device">Other data on your iPhone</a></li>
+            <li><a href="#purchases">Luris Pro and purchases</a></li>
             <li><a href="#never">What we never do</a></li>
             <li><a href="#connections">Every connection Luris makes</a></li>
             <li><a href="#bases">Legal bases (GDPR)</a></li>
@@ -136,6 +140,7 @@
           <tr><th scope="row">Location</th><td>Used during walks, runs and bike rides, and your route is stored on your iPhone. Apple's map service receives map requests and one location for choosing your units.</td></tr>
           <tr><th scope="row">Weekly step total</th><td>Sent to Apple's Game Center only if you join the leaderboard, and shown to other players with your Game Center alias.</td></tr>
           <tr><th scope="row">Sign in with Apple</th><td>Optional. Your name and an identifier are kept in the iOS Keychain on your iPhone. Luris does not ask for your email address.</td></tr>
+          <tr><th scope="row">Luris Pro purchases</th><td>Sold and billed by Apple. To know whether you have Luris Pro, the App uses the purchase service RevenueCat, which receives an anonymous identifier and the status of your subscription, and never your health, activity, location or profile data (<a href="#purchases">section 10</a>).</td></tr>
           <tr><th scope="row">Emails you send us</th><td>Received by us and used only to reply to you.</td></tr>
           <tr><th scope="row">Deleting your data</th><td>Delete All Data in Profile &gt; Your data removes everything Luris keeps on your iPhone. It does not touch Apple Health: what Luris saved there stays until you delete it in the Health app, or until you delete that one session in Luris, which also removes the workout Luris saved for it.</td></tr>
         </table>
@@ -189,7 +194,7 @@
           You can change what Luris may read or write at any time in Settings &gt; Privacy &amp; Security &gt; Health &gt; Luris.
           Apple does not tell apps whether read access was refused, so Luris simply shows no data for a type it cannot read.
           The walks, runs, rides and workouts Luris saved stay in Apple Health until you delete them there, even after you
-          use Delete All Data or Delete Account in Luris (<a href="#retention">section 13</a>). The one exception is a
+          use Delete All Data or Delete Account in Luris (<a href="#retention">section 14</a>). The one exception is a
           session you delete yourself in Activity: Luris then also removes from Apple Health the workout it saved for
           that session, and nothing else.
         </p>
@@ -311,7 +316,7 @@
           You can leave at any time with Leave leaderboard in the leaderboard menu. Luris stops submitting straight away.
           Game Center does not let apps delete a score that has already been posted, so this week's score stays on the board
           until the weekly reset. Signing out of Sign in with Apple in Luris also ends your membership, and so do Delete All
-          Data and Delete Account (<a href="#retention">section 13</a>).
+          Data and Delete Account (<a href="#retention">section 14</a>).
         </p>
         <p>
           Apple keeps Game Center records under its own privacy policy, and you manage your Game Center profile and alias in
@@ -335,7 +340,7 @@
         </p>
         <p>
           Sign Out in Profile removes the identifier and the name from the Keychain, and so do Delete All Data and Delete
-          Account (<a href="#retention">section 13</a>). The Keychain can keep them after the App is deleted, so sign out or
+          Account (<a href="#retention">section 14</a>). The Keychain can keep them after the App is deleted, so sign out or
           delete your data in Luris first if you want them gone. Your profile name stays until you change it in Profile,
           delete your data in Luris or delete the App. You can stop using Sign in with Apple with Luris in Settings &gt; your name &gt; Sign-In &amp;
           Security &gt; Sign in with Apple. See Apple's
@@ -374,22 +379,58 @@
           copy your data to iCloud or anywhere else.
         </p>
 
-        <h2 id="never">10. What We Never Do</h2>
+        <h2 id="purchases">10. Luris Pro and Purchases</h2>
+        <p>
+          Luris is free to use. Luris Pro is an optional subscription that Apple sells, bills and renews through your Apple
+          Account. We never see your payment card, your billing address, your Apple Account or your email address.
+        </p>
+        <p>
+          To know whether your copy of Luris has Luris Pro, and to keep a subscription working when you restore it or change
+          iPhone, the App uses RevenueCat, a purchase service run by RevenueCat, Inc. in the United States, which processes
+          this data on our behalf. Luris connects to it each time the App starts, whether or not you have ever bought
+          anything, and when you buy or restore Luris Pro. RevenueCat receives:
+        </p>
+        <ul>
+          <li>a random identifier that it creates for your copy of Luris. It is not your name, your Apple Account or your Sign in
+            with Apple ID, and Luris never tells RevenueCat who you are;</li>
+          <li>the App Store's record of your Luris Pro purchases: which subscription, when it started, renews or ends, whether
+            it is in a free trial, its price and currency, and the country of your App Store;</li>
+          <li>technical details sent with each request: the identifier iOS gives our apps on your iPhone (the identifier for
+            vendor, which is not the advertising identifier), your iPhone model, your iOS version, the version of Luris and
+            your preferred languages. As with any web request, RevenueCat can also see your IP address.</li>
+        </ul>
+        <p>
+          RevenueCat never receives your health or activity data, your workouts, routes, location, weight, photos, name or
+          anything else you enter in Luris, because Luris does not send it. We use what RevenueCat holds only to provide
+          Luris Pro and to count subscriptions. We do not use it for advertising, and we cannot tell from it who you are. See the
+          <a href="https://www.revenuecat.com/privacy">RevenueCat Privacy Policy</a>.
+        </p>
+        <p>
+          Luris also remembers on your iPhone whether you have Luris Pro, so that it keeps working without a connection.
+          Delete All Data and Delete Account keep that, and keep the random identifier, so that deleting your data does not
+          cost you a subscription you are paying for. To cancel Luris Pro, open Settings, tap your name, then Subscriptions.
+          Cancelling is done with Apple; deleting your data or the App does not cancel it.
+        </p>
+
+        <h2 id="never">11. What We Never Do</h2>
         <table>
           <tr><th scope="row">Analytics and crash reporting</th><td>None. Luris contains no analytics or crash reporting services.</td></tr>
           <tr><th scope="row">Advertising</th><td>None. There are no ads in Luris, and no data is used for advertising or marketing.</td></tr>
           <tr><th scope="row">Tracking</th><td>None. Luris does not track you across other companies' apps or websites and does not use the advertising identifier.</td></tr>
-          <tr><th scope="row">Third-party code</th><td>None. Luris is built only with Apple's own frameworks.</td></tr>
+          <tr><th scope="row">Third-party code</th><td>One component: RevenueCat's purchase library, used only for Luris Pro (<a href="#purchases">section 10</a>). Everything else is built with Apple's own frameworks.</td></tr>
           <tr><th scope="row">Selling or sharing data</th><td>Never. We do not sell, rent or trade any data, and we do not share it for advertising.</td></tr>
-          <tr><th scope="row">Servers and accounts</th><td>We run no servers and hold no database of users.</td></tr>
+          <tr><th scope="row">Servers and accounts</th><td>We run no servers and hold no database of users. The only records kept for us are RevenueCat's purchase records, under a random identifier (<a href="#purchases">section 10</a>).</td></tr>
         </table>
 
-        <h2 id="connections">11. Every Connection Luris Makes</h2>
+        <h2 id="connections">12. Every Connection Luris Makes</h2>
         <p>Luris connects to the internet only for these purposes:</p>
         <ul>
           <li><strong>Apple Game Center:</strong> only if you join the leaderboard (<a href="#leaderboard">section 7</a>).</li>
           <li><strong>Apple Maps:</strong> to show maps, and for the one-time country lookup that sets your units (<a href="#location">section 4</a>).</li>
           <li><strong>Sign in with Apple:</strong> only if you use it (<a href="#siwa">section 8</a>).</li>
+          <li><strong>The App Store and RevenueCat:</strong> when the App starts and when you open the Luris Pro screen, to
+            read the price of Luris Pro and whether you have it, and when you buy or restore it
+            (<a href="#purchases">section 10</a>).</li>
           <li><strong>Exercise images:</strong> every exercise image ships inside the App. Only if one were missing would Luris
             download it from the public, open-source Free Exercise DB on GitHub. That request contains no personal or health
             data, but as with any web request, GitHub can see your IP address.</li>
@@ -399,7 +440,7 @@
           the one to this policy, open in your browser.
         </p>
 
-        <h2 id="bases">12. Legal Bases for Processing (GDPR)</h2>
+        <h2 id="bases">13. Legal Bases for Processing (GDPR)</h2>
         <p>
           Most of what Luris does happens only on your iPhone, where we cannot access your data. If you are in the European
           Economic Area, the United Kingdom or Switzerland, and to the extent the GDPR applies, these are the legal bases:
@@ -411,7 +452,8 @@
           <li><strong>Consent</strong> (Article 6(1)(a)) for location, camera, photos and notifications, given in the iOS
             permission prompts.</li>
           <li><strong>Contract</strong> (Article 6(1)(b)) for providing the features you choose to use under our
-            <a href="terms.html">Terms of Use</a>, such as Sign in with Apple.</li>
+            <a href="terms.html">Terms of Use</a>, such as Sign in with Apple, and for selling you Luris Pro and
+            recognising that you have it, which is what RevenueCat is used for.</li>
           <li><strong>Legitimate interests</strong> (Article 6(1)(f)) for the one-time country lookup that shows distances and
             weights in the units used where you live, and for answering your emails. You can object at any time by contacting
             us, and you can always choose your units yourself in Profile.</li>
@@ -421,13 +463,14 @@
           processing that took place before.
         </p>
 
-        <h2 id="retention">13. Keeping and Deleting Your Data</h2>
+        <h2 id="retention">14. Keeping and Deleting Your Data</h2>
         <p>
-          Data on your iPhone stays there until you delete it. We hold no copy of it, so apart from emails you sent us there is
-          nothing for us to delete on our side.
+          Data on your iPhone stays there until you delete it. We hold no copy of it. Apart from emails you sent us, the
+          only thing kept outside your iPhone on our behalf is RevenueCat's purchase record
+          (<a href="#purchases">section 10</a>).
         </p>
 
-        <h3>13.1 Delete All Data</h3>
+        <h3>14.1 Delete All Data</h3>
         <p>
           In Luris, open Profile &gt; Your data and tap Delete All Data. Once you confirm, Luris deletes everything it keeps
           on your iPhone, for good:
@@ -439,12 +482,12 @@
           <li>your progress photo files, and any backup copy of Luris's database that was set aside after an error</li>
           <li>your leaderboard membership and public name</li>
           <li>the Sign in with Apple user ID and name stored in the iOS Keychain</li>
-          <li>all of Luris's settings on your iPhone, and the widget's data</li>
+          <li>all of Luris's settings on your iPhone, except whether you have Luris Pro, and the widget's data</li>
           <li>pending and delivered notifications, and any Live Activity</li>
         </ul>
         <p>This cannot be undone. Luris then returns to the welcome screen.</p>
 
-        <h3>13.2 Delete Account</h3>
+        <h3>14.2 Delete Account</h3>
         <p>
           When you are signed in with Apple, Profile &gt; Your data also shows Delete Account. It deletes the same data as
           Delete All Data and signs you out. Luris has no account on a server: Sign in with Apple only stores your Apple user
@@ -455,7 +498,7 @@
           then Sign-In &amp; Security, then Sign in with Apple, choose Luris and stop using it.
         </p>
 
-        <h3>13.3 What stays</h3>
+        <h3>14.3 What stays</h3>
         <p>Delete All Data and Delete Account reach only what Luris keeps on your iPhone. These stay:</p>
         <ul>
           <li><strong>Apple Health:</strong> the walks, runs, rides and workouts Luris saved stay in Apple Health until you
@@ -466,12 +509,15 @@
             let apps delete it. Apple keeps Game Center records under its own privacy policy.</li>
           <li><strong>Permissions:</strong> the access you gave Luris in iOS Settings, such as Health and location access,
             stays until you change it in Settings.</li>
+          <li><strong>Luris Pro:</strong> your subscription continues, and Luris keeps knowing that you have it. RevenueCat's
+            purchase record stays for as long as we use its service. To have it deleted, email us the order number from
+            Apple's receipt, which is how we can find a record that carries no name.</li>
           <li><strong>Photos:</strong> share cards you saved to your photo library stay in Photos.</li>
           <li><strong>Backups:</strong> your iCloud or computer backups keep what they contain until you delete them.</li>
           <li><strong>Emails:</strong> we keep them only as long as we need to answer you and follow up, and then delete them.</li>
         </ul>
 
-        <h3>13.4 Other ways to delete</h3>
+        <h3>14.4 Other ways to delete</h3>
         <ul>
           <li><strong>In the App:</strong> delete progress photos one by one in the Progress tab, sign out of Sign in with Apple
             in Profile, and leave the leaderboard from its menu.</li>
@@ -480,8 +526,8 @@
             Keychain can survive this, so use Delete All Data or sign out first.</li>
         </ul>
 
-        <h2 id="rights">14. Your Rights</h2>
-        <h3>14.1 European Economic Area, United Kingdom and Switzerland</h3>
+        <h2 id="rights">15. Your Rights</h2>
+        <h3>15.1 European Economic Area, United Kingdom and Switzerland</h3>
         <p>
           You have the right to access, correct and delete your personal data, to restrict or object to its processing, to
           data portability, and to withdraw consent at any time. You also have the right to complain to a data protection
@@ -493,7 +539,7 @@
           to help you first.
         </p>
 
-        <h3>14.2 California residents</h3>
+        <h3>15.2 California residents</h3>
         <p>
           Under the California Consumer Privacy Act, as amended by the California Privacy Rights Act:
         </p>
@@ -501,17 +547,18 @@
           <li>We do not sell your personal information and we do not share it for cross-context behavioural advertising.</li>
           <li>Sensitive personal information, such as health data and precise location, is used only to provide the App's
             features to you, on your iPhone, and never to infer characteristics about you.</li>
-          <li>The App does not send personal information to us. The only personal information we receive is what you include
-            in an email to us. The categories that Luris handles on your iPhone, and what Apple receives, are described in
-            sections 3 to 8.</li>
+          <li>The App does not send personal information to us. What we receive is what you include in an email to us, and,
+            through our service provider RevenueCat, identifiers and commercial information about Luris Pro purchases
+            (<a href="#purchases">section 10</a>). The categories that Luris handles on your iPhone, and what Apple
+            receives, are described in sections 3 to 8.</li>
           <li>You have the right to know about, access, correct and delete your personal information, and not to be treated
             differently for using these rights. You may use an authorised agent.</li>
         </ul>
 
-        <h3>14.3 How to use your rights</h3>
+        <h3>15.3 How to use your rights</h3>
         <p>
           Most of your data is on your iPhone, where you can see, change and delete it yourself, as described in
-          <a href="#retention">section 13</a>. For anything else, email us at
+          <a href="#retention">section 14</a>. For anything else, email us at
           <a href="mailto:iosallapps@gmail.com">iosallapps@gmail.com</a>. We answer within one month, or within 45 days for
           California requests. We will never ask you to send us health data to handle a request.
         </p>
@@ -520,34 +567,36 @@
           of it or its deletion at <a href="https://privacy.apple.com/">privacy.apple.com</a>, and we are happy to help.
         </p>
 
-        <h2 id="transfers">15. International Transfers</h2>
+        <h2 id="transfers">16. International Transfers</h2>
         <p>
-          We do not transfer your data anywhere, because the App sends nothing to us. Apple may process the data it receives
+          The App sends nothing to us. RevenueCat, Inc. processes the purchase data described in
+          <a href="#purchases">section 10</a> in the United States, under a data processing agreement that includes the
+          European Commission's standard contractual clauses. Apple may process the data it receives
           for Game Center, Apple Maps and Sign in with Apple in the United States and in other countries, under the safeguards
           described in <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>. If you email us, our email
           provider, Google (Gmail), processes your message and may do so outside your country. The rare exercise image
-          download described in <a href="#connections">section 11</a> goes to GitHub, in the United States.
+          download described in <a href="#connections">section 12</a> goes to GitHub, in the United States.
         </p>
 
-        <h2 id="children">16. Children</h2>
+        <h2 id="children">17. Children</h2>
         <p>
           Luris is not directed at children under 13, and you must be at least 13 to use it, as our
           <a href="terms.html">Terms of Use</a> say. We do not knowingly collect personal data from children, and because the
           App sends nothing to us, we hold none about any child. A parent or guardian can remove everything Luris stored with
-          Delete All Data in Profile &gt; Your data (<a href="#retention">section 13</a>), and can limit Game Center with
+          Delete All Data in Profile &gt; Your data (<a href="#retention">section 14</a>), and can limit Game Center with
           Screen Time. If you have a concern, please contact us at
           <a href="mailto:iosallapps@gmail.com">iosallapps@gmail.com</a>.
         </p>
 
-        <h2 id="security">17. Security</h2>
+        <h2 id="security">18. Security</h2>
         <p>
           Luris keeps your data in its private storage on your iPhone, protected by iOS app sandboxing and by the encryption
           iOS applies when your iPhone has a passcode. Sign in with Apple details are kept in the iOS Keychain. Connections to
-          Apple's services, and the exercise image download, are encrypted. No method of storing or sending data is completely
+          Apple's services and to RevenueCat, and the exercise image download, are encrypted. No method of storing or sending data is completely
           secure, so we recommend protecting your iPhone with a passcode.
         </p>
 
-        <h2 id="website">18. This Website</h2>
+        <h2 id="website">19. This Website</h2>
         <p>
           lurisapp.com is a static website hosted on GitHub Pages. It sets no cookies and uses no analytics, advertising or
           tracking. As with any website, the host, GitHub, processes technical data such as your IP address to deliver the
@@ -555,7 +604,7 @@
           <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>.
         </p>
 
-        <h2 id="changes">19. Changes to This Policy</h2>
+        <h2 id="changes">20. Changes to This Policy</h2>
         <p>We will update this policy when Luris or the services it uses change. When we do:</p>
         <ul>
           <li>We will update the dates at the top of this page.</li>
@@ -564,7 +613,7 @@
         </ul>
         <p>The current policy is always at <a href="https://lurisapp.com/privacy.html">https://lurisapp.com/privacy.html</a>.</p>
 
-        <h2 id="contact">20. Contact Us</h2>
+        <h2 id="contact">21. Contact Us</h2>
         <p>If you have any questions or requests about this Privacy Policy or how Luris handles your data, please contact us:</p>
         <ul>
           <li>Developer and data controller: Cirjan Darius</li>
@@ -574,7 +623,7 @@
         </ul>
         <p>We aim to reply within 7 business days.</p>
 
-        <h2 id="consumer-health-data">21. Consumer Health Data</h2>
+        <h2 id="consumer-health-data">22. Consumer Health Data</h2>
         <p>
           This section is the consumer health data privacy policy for Luris, for Washington's My Health My Data Act and
           similar laws in other US states. It adds to the sections above and changes none of them.
@@ -591,7 +640,7 @@
             if you join the leaderboard: Luris then sends it to Apple's Game Center at your direction
             (<a href="#leaderboard">section 7</a>).</li>
           <li><strong>Your rights:</strong> you can see and delete this data on your iPhone
-            (<a href="#retention">section 13</a>), withdraw your consent at any time in Settings &gt; Privacy &amp; Security
+            (<a href="#retention">section 14</a>), withdraw your consent at any time in Settings &gt; Privacy &amp; Security
             &gt; Health &gt; Luris, and stop sharing your step total by leaving the leaderboard. For any other request, email
             <a href="mailto:iosallapps@gmail.com">iosallapps@gmail.com</a>. If we decline a request, you can appeal by
             replying to our answer, and we will respond within 45 days.</li>
