@@ -50,15 +50,14 @@ OG_IMAGE = {"path": "/og-image.jpg", "width": 1200, "height": 630,
             "alt": "Luris on two iPhones, today's steps ring and a run drawn on the map, beside the "
                    "words Every step, every route, one app."}
 
-LANGUAGES = ["en", "de", "es", "fr", "it", "ja", "ko", "nl", "pl", "pt-BR", "pt-PT", "ro",
-             "sv", "tr", "zh-Hans", "zh-Hant"]
+LANGUAGES = ["en", "ar", "bn", "ca", "zh-Hans", "zh-Hant", "hr", "cs", "da", "nl", "fi", "fr", "de", "el", "gu", "he", "hi", "hu", "id", "it", "ja", "kn", "ko", "ms", "ml", "mr", "nb", "or", "pl", "pt-BR", "pt-PT", "pa", "ro", "ru", "sk", "sl", "es", "sv", "ta", "te", "th", "tr", "uk", "ur", "vi"]
 
 PAGES = {
     "index.html": {
         "path": "/", "nav": None, "og_type": "website",
         "title": f"{APP_NAME} for iPhone",
         "description": "Luris counts your steps from Apple Health, maps your walks, runs and bike rides "
-                       "with GPS and builds a six-week plan from 873 exercises. No account, no ads.",
+                       "with GPS and builds a six-week plan from 873 exercises. No account needed.",
         "social": "Steps, GPS walks, runs and rides, a six-week plan and progress you can see, built on "
                   "Apple Health.",
     },
