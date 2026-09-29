@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!-- The social preview (og-image.jpg, 1200x630). Rendered by `node _tools/shoot.mjs og`.
-     Evergreen on purpose: no "Coming soon", no badge, nothing that goes stale in caches. -->
+     Evergreen on purpose: no "Coming soon", no badge, nothing that goes stale in caches.
+     Same art direction as the App Store screenshots: dusk photo, glowing last word, gold laurels. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -10,52 +11,63 @@
     html, body { width: 1200px; height: 630px; overflow: hidden; }
     body {
         font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
-        color: #fff; -webkit-font-smoothing: antialiased;
-        background:
-            radial-gradient(55% 75% at 8% 0%, rgba(46, 123, 255, 0.42), transparent 70%),
-            radial-gradient(45% 60% at 100% 100%, rgba(46, 123, 255, 0.22), transparent 70%),
-            linear-gradient(180deg, #0A0F1A 0%, #141C2B 100%);
-        position: relative;
+        color: #fff; -webkit-font-smoothing: antialiased; background: #050a16; position: relative;
     }
-    .copy { position: absolute; left: 80px; top: 92px; width: 620px; }
+    .photo { position: absolute; left: 0; top: 0; width: 760px; height: 630px; object-fit: cover; object-position: 50% 24%; }
+    .shade {
+        position: absolute; inset: 0;
+        background:
+            linear-gradient(90deg, rgba(5, 10, 22, 0.78) 0%, rgba(5, 10, 22, 0.42) 34%, rgba(5, 10, 22, 0.55) 50%, #050a16 64%),
+            linear-gradient(0deg, rgba(5, 10, 22, 0.8) 0%, rgba(5, 10, 22, 0) 40%),
+            radial-gradient(420px 380px at 84% 50%, rgba(47, 107, 255, 0.3), transparent 70%);
+    }
+    .grain { position: absolute; inset: 0; opacity: 0.1; mix-blend-mode: soft-light;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+    .copy { position: absolute; left: 70px; top: 62px; width: 600px; }
     .brand { display: flex; align-items: center; gap: 14px; }
-    .brand img { width: 56px; height: 56px; }
-    .brand svg { width: 116px; height: 26px; }
-    .eyebrow { margin-top: 44px; display: flex; align-items: center; gap: 12px; font-size: 24px; font-weight: 600; color: #8CBBFF; }
-    .eyebrow i { width: 12px; height: 12px; border-radius: 50%; background: #5BA4FF; box-shadow: 0 0 0 5px rgba(91, 164, 255, 0.22); }
-    h1 { margin-top: 18px; font-size: 76px; line-height: 1.02; font-weight: 800; letter-spacing: -0.035em; }
-    h1 span { background: linear-gradient(90deg, #5BA4FF, #2E7BFF); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .facts { margin-top: 30px; display: flex; gap: 10px; }
-    .facts b { font-weight: 500; font-size: 19px; color: rgba(255, 255, 255, 0.86); padding: 8px 14px; border-radius: 999px; background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.14); }
-    .phones { position: absolute; right: 64px; top: 58px; display: flex; gap: 20px; align-items: flex-start; }
-    .phones img:first-child { width: 250px; }
-    .phones img:last-child { width: 196px; margin-top: 70px; }
+    .brand img { width: 58px; height: 58px; border-radius: 14px; box-shadow: 0 0 30px rgba(47, 107, 255, 0.55); }
+    .brand svg { width: 108px; height: 24px; color: #fff; }
+    .laurels { margin-top: 38px; display: inline-flex; align-items: center; gap: 12px; }
+    .laurels svg { width: 40px; height: 60px; filter: drop-shadow(0 0 10px rgba(245, 184, 61, 0.4)); }
+    .laurels svg:last-child { transform: scaleX(-1); }
+    .laurels p { text-align: center; text-transform: uppercase; font-weight: 850; font-size: 23px; line-height: 1.02; }
+    .laurels b { background: linear-gradient(180deg, #ffe08a, #f5b83d 55%, #d98a1c); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    h1 { margin-top: 20px; font-size: 76px; line-height: 0.98; font-weight: 850; letter-spacing: -0.045em; }
+    h1 span { white-space: nowrap; background: linear-gradient(100deg, #a8dcff, #5aa8ff 42%, #2f6bff); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 20px rgba(47, 107, 255, 0.55)); }
+    .motto { margin-top: 30px; display: inline-flex; gap: 12px; align-items: center; padding: 10px 22px; border-radius: 999px; font-size: 16px; font-weight: 800; letter-spacing: 0.24em; color: #ffe08a; border: 1.5px solid rgba(245, 184, 61, 0.5); background: rgba(245, 184, 61, 0.08); }
+    .motto i { width: 5px; height: 5px; border-radius: 50%; background: #f5b83d; }
+    .phones { position: absolute; right: 44px; top: 50px; width: 420px; height: 560px; }
+    .phones img { position: absolute; filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.6)); }
+    .phones .back { width: 214px; right: 0; top: 50px; filter: brightness(0.8) drop-shadow(0 30px 40px rgba(0, 0, 0, 0.6)); }
+    .phones .front { width: 262px; left: 20px; top: 0; }
 </style>
 </head>
 <body>
-    <svg width="0" height="0" style="position:absolute">
-        <defs>
-            <linearGradient id="wordmark-gradient" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5BA4FF"/><stop offset="1" stop-color="#2E7BFF"/></linearGradient>
-        </defs>
-    </svg>
+    <img class="photo" src="/img/photo/hero-1100.webp" alt="">
+    <div class="shade"></div>
+    <svg width="0" height="0" style="position:absolute" id="defs"></svg>
     <div class="copy">
-        <div class="brand">
-            <img src="/img/luris-mark-96.png" alt="">
-            <svg viewBox="0 0 6679 1493" id="wm"></svg>
-        </div>
-        <p class="eyebrow"><i></i>Step counter and GPS run tracker for iPhone</p>
-        <h1>Every step, every route, <span>one app.</span></h1>
-        <div class="facts"><b>Built on Apple Health</b><b>No account</b><b>No ads or tracking</b></div>
+        <div class="brand"><img src="/img/app-icon-256.webp" alt=""><svg viewBox="0 0 6679 1493" id="wm"></svg></div>
+        <div class="laurels"><svg viewBox="0 0 64 96" class="laurel"></svg><p>All-in-one<br><b>fitness app</b></p><svg viewBox="0 0 64 96" class="laurel"></svg></div>
+        <h1>Everything you need to <span>move more</span></h1>
+        <p class="motto">WALK<i></i>RUN<i></i>RIDE<i></i>TRAIN</p>
     </div>
     <div class="phones">
-        <img src="/img/screens/home-1080.webp" alt="">
-        <img src="/img/screens/route-720.webp" alt="">
+        <img class="back" src="/img/phone/run-600.webp" alt="">
+        <img class="front" src="/img/phone/home-600.webp" alt="">
     </div>
+    <div class="grain"></div>
     <script>
-        // the outlined wordmark, from the same fragment every page uses
-        fetch('/_tools/fragments/wordmark.svg').then((r) => r.text()).then((symbol) => {
-            const path = symbol.match(/<path[^>]*\/>/)[0];
-            document.getElementById('wm').innerHTML = path;
+        // borrow the wordmark and the laurel from the live page's sprite, so the image and the site never drift
+        fetch('/index.html').then((r) => r.text()).then((page) => {
+            const doc = new DOMParser().parseFromString(page, 'text/html');
+            const wordmark = doc.getElementById('wordmark');
+            const laurel = doc.getElementById('laurel');
+            const gold = doc.getElementById('laurel-gold');
+            document.getElementById('defs').innerHTML = `<defs>${gold.outerHTML}</defs>`;
+            document.getElementById('wm').innerHTML = wordmark.innerHTML;
+            document.querySelectorAll('svg.laurel').forEach((svg) => { svg.innerHTML = laurel.innerHTML; });
+            document.title = 'ready';
         });
     </script>
 </body>

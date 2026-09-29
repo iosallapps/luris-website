@@ -51,7 +51,7 @@ def main():
     width, height = x1 - x0, y1 - y0
     symbol = (
         f'<symbol id="wordmark" viewBox="0 0 {width:.0f} {height:.0f}">'
-        f'<path fill="url(#wordmark-gradient)" d="{svg_pen.getCommands()}"/></symbol>\n'
+        f'<path fill="currentColor" d="{svg_pen.getCommands()}"/></symbol>\n'
     )
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w") as handle:

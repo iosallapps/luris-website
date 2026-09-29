@@ -57,6 +57,13 @@ for (const name of ['index', 'support', 'privacy', 'terms', '404']) {
             const stops = await page.evaluate(() => document.querySelectorAll('a[href], summary, button').length);
             for (let i = 0; i < stops + 2; i += 1) {
                 await page.keyboard.press('Tab');
+                // the site scrolls smoothly; measure once the focus scroll has settled
+                await page.evaluate(() => new Promise((resolve) => {
+                    let last = -1, still = 0;
+                    const tick = () => { still = window.scrollY === last ? still + 1 : 0; last = window.scrollY; if (still > 3) resolve(); else requestAnimationFrame(tick); };
+                    requestAnimationFrame(tick);
+                    setTimeout(resolve, 1500);
+                }));
                 const info = await page.evaluate(() => {
                     const el = document.activeElement;
                     if (!el || el === document.body || el.classList.contains('skip-link')) return null;
@@ -77,7 +84,8 @@ for (const name of ['index', 'support', 'privacy', 'terms', '404']) {
             return result.violations.map((v) => `${v.impact} ${v.id}: ${v.help} -> ${v.nodes.map((n) => n.target.join(' ')).slice(0, 4).join(' | ')}`);
         });
 
-        const external = requests.filter((r) => !r.url.startsWith(base));
+        // data: URIs (the film grain) are inline, not requests to another origin
+        const external = requests.filter((r) => !r.url.startsWith(base) && !r.url.startsWith('data:'));
         const failed = requests.filter((r) => r.status >= 400 && !(name === '404' && r.url === url));
         const issues = [
             ...errors, ...external.map((r) => `external request ${r.url}`), ...failed.map((r) => `${r.status} ${r.url}`),

@@ -15,7 +15,7 @@ trademark credit are identical on every page and change in one place. Everything
 outside the markers (the page content, the legal text) is never touched.
 
 Regions: head, meta, sprite, header, footer (every page); hero-cta, final-cta,
-jsonld, route-1 to route-6 (home page only). It also writes sitemap.xml, with each page's lastmod taken
+jsonld (home page only). It also writes sitemap.xml, with each page's lastmod taken
 from git (today for a page that differs from the last commit).
 
 State lives in _tools/release.json: {"released": false, "provider_token": ""}.
@@ -47,8 +47,8 @@ CONTACT = "iosallapps@gmail.com"
 DEVELOPER = "Cirjan Darius"
 YEAR = 2026
 OG_IMAGE = {"path": "/og-image.jpg", "width": 1200, "height": 630,
-            "alt": "Luris on two iPhones, today's steps ring and a run drawn on the map, beside the "
-                   "words Every step, every route, one app."}
+            "alt": "Luris on two iPhones, the Home tab with today's steps ring and a run drawn on the "
+                   "map, over a runner at dusk, beside the words Everything you need to move more."}
 
 LANGUAGES = ["en", "ar", "bn", "ca", "zh-Hans", "zh-Hant", "hr", "cs", "da", "nl", "fi", "fr", "de", "el", "gu", "he", "hi", "hu", "id", "it", "ja", "kn", "ko", "ms", "ml", "mr", "nb", "or", "pl", "pt-BR", "pt-PT", "pa", "ro", "ru", "sk", "sl", "es", "sv", "ta", "te", "th", "tr", "uk", "ur", "vi"]
 
@@ -177,6 +177,73 @@ ICONS = {
 }
 
 
+ICONS.update({
+    "i-heart": '<path fill="currentColor" d="M12 20.6s-7.9-4.7-9.4-9.7C1.5 7.3 3.8 4 7.2 4c2 0 3.6 1.1 4.8 2.8C13.2 5.1 '
+               '14.8 4 16.8 4c3.4 0 5.7 3.3 4.6 6.9-1.5 5-9.4 9.7-9.4 9.7z"/>',
+    "i-route": '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+               '<circle cx="6" cy="18" r="2.4"/><circle cx="18" cy="6" r="2.4"/>'
+               '<path d="M8.4 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.6"/></g>',
+    "i-lock": '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+              '<rect x="4.5" y="10.5" width="15" height="10.5" rx="2.6"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/></g>',
+    "i-trash": '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+               '<path d="M4 6.5h16M9.5 6.5V4.8c0-.7.5-1.3 1.3-1.3h2.4c.8 0 1.3.6 1.3 1.3v1.7M6.2 6.5l.9 12.6c.1 1 .9 '
+               '1.9 2 1.9h5.8c1.1 0 1.9-.8 2-1.9l.9-12.6M10 10.5v6.5M14 10.5v6.5"/></g>',
+    "i-shield": '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+                '<path d="M12 2.8 4.5 5.6v5.8c0 4.8 3.2 8.4 7.5 9.8 4.3-1.4 7.5-5 7.5-9.8V5.6z"/>'
+                '<path d="m8.8 12 2.3 2.3 4.2-4.6"/></g>',
+    "i-ad": '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+            '<rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="m6.5 15.5 2.4-7 2.4 7M7.3 13.3h3.2M14 '
+            '8.5v7h1.6a3.5 3.5 0 0 0 0-7z"/></g>',
+    "i-chart": '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+               '<path d="M3.5 20.5h17"/><path d="m4.5 15.5 5-5 3.5 3.5 6.5-7"/><path d="M15.5 7h4v4"/></g>',
+    "i-card": '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+              '<rect x="5" y="2.5" width="14" height="19" rx="2.6"/><path d="m5 16 4.2-4.2a1.6 1.6 0 0 1 2.3 0L19 19"/>'
+              '<circle cx="14.5" cy="8" r="1.8"/></g>',
+    "i-spark": '<path fill="currentColor" d="M12 2.5c.5 4.6 2.9 7 7.5 7.5v.1c-4.6.5-7 2.9-7.5 7.5h-.1c-.5-4.6-2.9-7-7.4-7.5v-.1'
+               'c4.5-.5 6.9-2.9 7.4-7.5zM19 15.5c.2 1.9 1.1 2.8 3 3-1.9.2-2.8 1.1-3 3-.2-1.9-1.1-2.8-3-3 1.9-.2 2.8-1.1 3-3z"/>',
+    "i-card-user": '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+                   '<rect x="2.5" y="4.5" width="19" height="15" rx="3"/><circle cx="12" cy="10.5" r="2.8"/>'
+                   '<path d="M7 17.5a5.6 5.6 0 0 1 10 0"/></g>',
+    "i-trophy": '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+                '<path d="M7.5 3.5h9v6a4.5 4.5 0 0 1-9 0z"/><path d="M7.5 5.5H4.5v1.5a3 3 0 0 0 3 3M16.5 5.5h3v1.5a3 3 0 0 1-3 3"/>'
+                '<path d="M12 14v3.5M8.5 20.5h7M9.5 17.5h5"/></g>',
+    "i-plus": '<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 5v14M5 12h14"/>',
+    "i-arrow": '<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" '
+               'd="M5 12h14m-5.5-5.5L19 12l-5.5 5.5"/>',
+    "i-dumbbell": '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+                  '<path d="M8 12h8M3.5 9.5v5M20.5 9.5v5"/><rect x="5.5" y="7" width="3" height="10" rx="1.2"/>'
+                  '<rect x="15.5" y="7" width="3" height="10" rx="1.2"/></g>',
+})
+
+
+def laurel_branch():
+    """One gold laurel branch (the left one; CSS mirrors it for the right), drawn here so the
+    site needs no icon font. Leaves sit in pairs along an arc, smaller toward the tip."""
+    leaf = "M0 0C4-3.8 4.2-11.2 0-16.5C-4.2-11.2-4-3.8 0 0Z"
+    cx, cy, radius = 58, 50, 40
+    start, end = 116, 232
+
+    def point(degrees):
+        rad = math.radians(degrees)
+        return cx + radius * math.cos(rad), cy + radius * math.sin(rad)
+
+    (x0, y0), (x1, y1) = point(start), point(end)
+    parts = [f'<path d="M{x0:.1f} {y0:.1f}A{radius} {radius} 0 0 1 {x1:.1f} {y1:.1f}" fill="none" '
+             'stroke="url(#laurel-gold)" stroke-width="2.4" stroke-linecap="round"/>']
+    count = 6
+    for i in range(count):
+        t = i / (count - 1)
+        degrees = start + 6 + t * (end - start - 22)
+        x, y = point(degrees)
+        heading = degrees + 90 + 180 - 90                  # leaf axis along the stem, toward the tip
+        scale = 1.2 - 0.4 * t
+        for side in (-34, 40):
+            parts.append(f'<path d="{leaf}" transform="translate({x:.1f} {y:.1f}) rotate({heading + side:.1f}) '
+                         f'scale({scale:.2f})"/>')
+    parts.append(f'<path d="{leaf}" transform="translate({x1:.1f} {y1:.1f}) rotate(-6) scale(.78)"/>')
+    return f'<g fill="url(#laurel-gold)">{"".join(parts)}</g>'
+
+
 def sprite():
     with open(os.path.join(HERE, "fragments", "wordmark.svg")) as handle:
         wordmark = handle.read().strip()
@@ -185,10 +252,11 @@ def sprite():
     return (
         '    <svg class="sprite" aria-hidden="true" focusable="false">\n'
         '        <defs>\n'
-        '        <linearGradient id="wordmark-gradient" x1="0" y1="0" x2="1" y2="0">'
-        '<stop offset="0" class="wm-a" stop-color="#2E7BFF"/><stop offset="1" class="wm-b" '
-        'stop-color="#1A5FE0"/></linearGradient>\n'
+        '        <linearGradient id="laurel-gold" x1="0" y1="0" x2="0" y2="1">'
+        '<stop offset="0" stop-color="#FFE08A"/><stop offset=".55" stop-color="#F5B83D"/>'
+        '<stop offset="1" stop-color="#D98A1C"/></linearGradient>\n'
         f'        {wordmark}\n{symbols}\n'
+        f'        <symbol id="laurel" viewBox="0 0 64 96">{laurel_branch()}</symbol>\n'
         '        </defs>\n'
         '    </svg>\n'
     )
@@ -197,7 +265,7 @@ def sprite():
 def brand():
     return (
         '<a class="brand" href="/" aria-label="Luris home">'
-        '<img src="/img/luris-mark-96.png" width="32" height="32" alt="">'
+        '<img src="/img/app-icon-128.webp" width="36" height="36" alt="">'
         '<svg class="wordmark" viewBox="0 0 6679 1493" aria-hidden="true" focusable="false">'
         '<use href="#wordmark"/></svg></a>'
     )
@@ -210,7 +278,7 @@ def header(state, nav):
         cta = (f'<a class="btn btn-primary btn-small" href="{esc(store_link(state, campaign))}" '
                'aria-label="Get Luris on the App Store">Get Luris</a>')
     else:
-        cta = '<span class="soon-chip">Coming soon</span>'
+        cta = '<span class="soon-chip"><span class="pulse" aria-hidden="true"></span>Coming soon</span>'
     return (
         '    <header class="site-header">\n'
         '        <div class="container bar">\n'
@@ -218,6 +286,8 @@ def header(state, nav):
         '            <nav class="nav" aria-label="Primary">\n'
         '                <a class="nav-wide" href="/#features">Features</a>\n'
         '                <a class="nav-wide" href="/#privacy">Privacy</a>\n'
+        '                <a class="nav-wide" href="/#pro">Luris Pro</a>\n'
+        '                <a class="nav-wide" href="/#questions">Questions</a>\n'
         f'                <a href="/support.html"{current}>Support</a>\n'
         f'                {cta}\n'
         '            </nav>\n'
@@ -261,45 +331,40 @@ def soon_pill():
             'Coming soon to the App Store</p>')
 
 
-def hero_cta(state):
+def store_state(state, campaign, indent, button):
+    pad = " " * indent
     if not state["released"]:
         return (
-            '                        <div class="store-state">\n'
-            f'                            {soon_pill()}\n'
-            '                            <p class="requirement">For iPhone with iOS 26.2 or later.</p>\n'
-            '                        </div>\n'
+            f'{pad}<div class="store-state">\n'
+            f'{pad}    {soon_pill()}\n'
+            f'{pad}    <p class="requirement">For iPhone with iOS 26.2 or later.</p>\n'
+            f'{pad}</div>\n'
         )
+    if button:
+        link = (f'<a class="btn btn-primary btn-large" href="{esc(store_link(state, campaign))}">'
+                'Get Luris on the App Store</a>')
+    else:
+        # Apple's official badge, unaltered, 50 px tall
+        link = (f'<a class="store-badge" href="{esc(store_link(state, campaign))}">'
+                '<img src="/img/badges/app-store-black-en-us.svg" width="150" height="50" '
+                'alt="Download on the App Store"></a>')
     return (
-        '                        <div class="store-state">\n'
-        '                            <div class="store-row">\n'
-        f'                                <a class="store-badge" href="{esc(store_link(state, "web-hero"))}">'
-        '<img src="/img/badges/app-store-black-en-us.svg" width="150" height="50" '
-        'alt="Download on the App Store"></a>\n'
-        f'                                {qr_tile(state)}\n'
-        '                            </div>\n'
-        '                            <p class="requirement">Requires iPhone with iOS 26.2 or later.</p>\n'
-        '                        </div>\n'
+        f'{pad}<div class="store-state">\n'
+        f'{pad}    <div class="store-row">\n'
+        f'{pad}        {link}\n'
+        f'{pad}        {qr_tile(state)}\n'
+        f'{pad}    </div>\n'
+        f'{pad}    <p class="requirement">Requires iPhone with iOS 26.2 or later.</p>\n'
+        f'{pad}</div>\n'
     )
+
+
+def hero_cta(state):
+    return store_state(state, "web-hero", 20, button=False)
 
 
 def final_cta(state):
-    if not state["released"]:
-        return (
-            '                <div class="store-state">\n'
-            f'                    {soon_pill()}\n'
-            '                    <p class="requirement">For iPhone with iOS 26.2 or later.</p>\n'
-            '                </div>\n'
-        )
-    return (
-        '                <div class="store-state">\n'
-        '                    <div class="store-row">\n'
-        f'                        <a class="btn btn-primary" href="{esc(store_link(state, "web-final"))}">'
-        'Get Luris on the App Store</a>\n'
-        f'                        {qr_tile(state)}\n'
-        '                    </div>\n'
-        '                    <p class="requirement">Requires iPhone with iOS 26.2 or later.</p>\n'
-        '                </div>\n'
-    )
+    return store_state(state, "web-final", 20, button=True)
 
 
 def footer(state, trademarks, nav=None):
@@ -321,6 +386,7 @@ def footer(state, trademarks, nav=None):
         '                    <ul>\n'
         '                        <li><a href="/#features">Features</a></li>\n'
         '                        <li><a href="/#privacy">Privacy</a></li>\n'
+        '                        <li><a href="/#pro">Luris Pro</a></li>\n'
         f'                        <li><a href="/#questions">Questions</a></li>{store}\n'
         '                    </ul>\n'
         '                </nav>\n'
@@ -336,6 +402,7 @@ def footer(state, trademarks, nav=None):
         '                    <h2 id="footer-support">Support</h2>\n'
         '                    <ul>\n'
         '                        <li><a href="/support.html">Help and questions</a></li>\n'
+        '                        <li><a href="/support.html#delete">Delete your data</a></li>\n'
         f'                        <li><a href="mailto:{CONTACT}">{CONTACT}</a></li>\n'
         '                    </ul>\n'
         '                </nav>\n'
@@ -352,6 +419,8 @@ def footer(state, trademarks, nav=None):
         f'                <span>&copy; {YEAR} {DEVELOPER}</span>\n'
         f'                <span class="trademarks">{trademarks}</span>\n'
         '            </div>\n'
+        '            <svg class="footer-mark" viewBox="0 0 6679 1493" aria-hidden="true" focusable="false">'
+        '<use href="#wordmark"/></svg>\n'
         '        </div>\n'
         '    </footer>\n'
     )
@@ -371,9 +440,8 @@ def head(state):
         f'    <meta http-equiv="Content-Security-Policy" content="{CSP}">\n'
         '    <meta name="referrer" content="strict-origin-when-cross-origin">\n'
         '    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
-        '    <meta name="color-scheme" content="light dark">\n'
-        '    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F3F6FB">\n'
-        '    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0A0F1A">\n'
+        '    <meta name="color-scheme" content="dark">\n'
+        '    <meta name="theme-color" content="#050A16">\n'
         f'{banner}'
         '    <link rel="icon" href="/favicon.ico" sizes="48x48">\n'
         '    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">\n'
@@ -461,47 +529,6 @@ def jsonld(state):
     return f'    <script type="application/ld+json">\n{body}\n    </script>\n'
 
 
-# ---------------------------------------------------------------- the route line
-
-def demo_route_wobble(t):
-    """The sideways wobble of the demo run Luris draws on its own map screen
-    (RunTracker.seedDemoRun, a trail through Golden Gate Park), as a function of
-    progress t in [0, 1]. The page's route line is this shape, turned on its side."""
-    return (0.0019 * math.sin(t * 7.4) + 0.0010 * math.sin(t * 16.5 + 1.2)
-            + 0.0004 * math.sin(t * 33.0))
-
-
-def route_segment(index, count=6, width=80, height=400, amplitude=30, samples=48):
-    """One stretch of the route for feature row `index`. It enters at the top centre,
-    passes the row's waypoint at the exact centre and leaves at the bottom centre, so
-    the rows join into one continuous line. Returns an inline SVG."""
-    t0, t1 = index / count, (index + 1) / count
-    tm = (t0 + t1) / 2
-    pins = [(t0, demo_route_wobble(t0)), (tm, demo_route_wobble(tm)), (t1, demo_route_wobble(t1))]
-
-    def baseline(t):
-        (a, fa), (b, fb) = (pins[0], pins[1]) if t <= tm else (pins[1], pins[2])
-        return fa + (fb - fa) * (t - a) / (b - a)
-
-    offsets = []
-    for i in range(samples + 1):
-        t = t0 + (t1 - t0) * i / samples
-        offsets.append(demo_route_wobble(t) - baseline(t))
-    peak = max(abs(o) for o in offsets) or 1
-    points = [(width / 2 + amplitude * o / peak, height * i / samples) for i, o in enumerate(offsets)]
-    d = "M" + " L".join(f"{x:.1f} {y:.1f}" for x, y in points)
-    # two copies: a faint track, and the line on top that is revealed on scroll
-    svg = (f'<svg class="route {{kind}}" viewBox="0 0 {width} {height}" preserveAspectRatio="none" '
-           f'aria-hidden="true" focusable="false"><path d="{d}"/></svg>')
-    caps = ""
-    if index == 0:
-        caps += '<span class="route-cap route-cap-start" aria-hidden="true"></span>'
-    if index == count - 1:
-        caps += '<span class="route-cap route-cap-end" aria-hidden="true"></span>'
-    return (svg.replace("{kind}", "route-track") + svg.replace("{kind}", "route-line")
-            + '<span class="waypoint" aria-hidden="true"></span>' + caps)
-
-
 # ---------------------------------------------------------------- assembly
 
 REGION = re.compile(r"(<!-- build:([a-z0-9-]+) -->\n)(.*?)(^[ \t]*<!-- /build:\2 -->)", re.S | re.M)
@@ -547,7 +574,6 @@ def render(page, markup, state):
     }
     if home:
         fragments.update({"hero-cta": hero_cta(state), "final-cta": final_cta(state), "jsonld": jsonld(state)})
-        fragments.update({f"route-{i + 1}": "                    " + route_segment(i) + "\n" for i in range(6)})
 
     seen = set()
 
