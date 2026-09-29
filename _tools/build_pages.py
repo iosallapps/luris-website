@@ -73,9 +73,8 @@ PAGES = {
     "privacy.html": {
         "path": "/privacy.html", "nav": None, "og_type": "article",
         "title": "Luris Privacy Policy",
-        "description": "How Luris handles your data: health data stays on your iPhone, no servers, no "
-                       "analytics, no advertising and no tracking. What goes to Apple for Game Center, "
-                       "Maps and Sign in with Apple, and nothing to the developer.",
+        "description": "How Luris handles your data: health data stays on your iPhone. Ads, analytics and "
+                       "crash reports from Google, purchases through RevenueCat, and what goes to Apple.",
         "social": "Health data stays on your iPhone. What goes to Apple, and nothing to the developer.",
     },
     "terms.html": {
