@@ -337,7 +337,7 @@ def store_state(state, campaign, indent, button):
         return (
             f'{pad}<div class="store-state">\n'
             f'{pad}    {soon_pill()}\n'
-            f'{pad}    <p class="requirement">For iPhone with iOS 26.2 or later.</p>\n'
+            f'{pad}    <p class="requirement">For iPhone with iOS 18.0 or later.</p>\n'
             f'{pad}</div>\n'
         )
     if button:
@@ -354,7 +354,7 @@ def store_state(state, campaign, indent, button):
         f'{pad}        {link}\n'
         f'{pad}        {qr_tile(state)}\n'
         f'{pad}    </div>\n'
-        f'{pad}    <p class="requirement">Requires iPhone with iOS 26.2 or later.</p>\n'
+        f'{pad}    <p class="requirement">Requires iPhone with iOS 18.0 or later.</p>\n'
         f'{pad}</div>\n'
     )
 
@@ -491,7 +491,7 @@ def jsonld(state):
         "description": PAGES["index.html"]["description"],
         "applicationCategory": "HealthApplication",
         "applicationSubCategory": "Step counter and GPS walk, run and ride tracker",
-        "operatingSystem": "iOS 26.2 or later",
+        "operatingSystem": "iOS 18.0 or later",
         "availableOnDevice": "iPhone",
         "inLanguage": LANGUAGES,
         "featureList": [
