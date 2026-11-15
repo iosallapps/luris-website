@@ -7,7 +7,6 @@
 :root {
     --bg: #050a16;
     --bg-2: #0a1428;
-    --bg-3: #0f1c36;
     --ink: #f4f7fc;
     --ink-2: #d5deec;
     --muted: #a9b6cc;
@@ -23,7 +22,6 @@
     --gold-3: #d98a1c;
     --glow: linear-gradient(100deg, var(--blue-1) 0%, var(--blue-2) 42%, var(--blue-3) 100%);
     --gold: linear-gradient(180deg, var(--gold-1) 0%, var(--gold-2) 55%, var(--gold-3) 100%);
-    --radius: 24px;
     --gutter: clamp(16px, 4vw, 40px);
     --header: 68px;
     --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Segoe UI", Roboto,
@@ -582,7 +580,6 @@ details[open] > summary .qa-icon { transform: rotate(45deg); }
 .footer-health { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 0.86rem; color: var(--faint); }
 .footer-bottom { display: flex; justify-content: space-between; gap: 12px 40px; flex-wrap: wrap; margin-top: 14px; font-size: 0.8rem; color: var(--faint); }
 .trademarks { max-width: 62em; }
-.footer-mark { width: 100%; height: auto; margin: 44px 0 -2.2%; color: rgba(255, 255, 255, 0.045); }
 
 /* ------------------------------------------------------------------ legal, support, 404 */
 
