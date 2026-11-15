@@ -44,7 +44,7 @@ ORIGIN = "https://lurisapp.com"
 APP_ID = "6813596103"
 APP_NAME = "Luris: Step & Activity Tracker"   # the App Store Connect name
 CONTACT = "iosallapps@gmail.com"
-DEVELOPER = "Cirjan Darius"
+DEVELOPER = "Visto Apps, the brand of Darius Cirjan"
 YEAR = 2026
 OG_IMAGE = {"path": "/og-image.jpg", "width": 1200, "height": 630,
             "alt": "Luris on two iPhones, the Home tab with today's steps ring and a run drawn on the "
@@ -414,7 +414,7 @@ def footer(state, trademarks, nav=None):
         '            </div>\n'
         '            <p class="footer-health">Luris is not a medical device and does not give medical advice. '
         'Check with a doctor before starting a new exercise programme. '
-        '<a href="/terms.html#health">Read the health disclaimer</a>.</p>\n'
+        '<a href="/terms.html#accuracy">Read the health disclaimer</a>.</p>\n'
         '            <div class="footer-bottom">\n'
         f'                <span>&copy; {YEAR} {DEVELOPER}</span>\n'
         f'                <span class="trademarks">{trademarks}</span>\n'
@@ -519,8 +519,8 @@ def jsonld(state):
         "@graph": [
             {"@type": "WebSite", "@id": f"{ORIGIN}/#website", "url": f"{ORIGIN}/", "name": "Luris",
              "inLanguage": "en"},
-            {"@type": "Person", "@id": f"{ORIGIN}/#developer", "name": DEVELOPER,
-             "email": f"mailto:{CONTACT}"},
+            {"@type": "Organization", "@id": f"{ORIGIN}/#developer", "name": "Visto Apps",
+             "description": DEVELOPER, "url": "https://vistoapps.com", "email": f"mailto:{CONTACT}"},
             app,
         ],
     }

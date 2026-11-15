@@ -808,3 +808,16 @@ details[open] > summary .qa-icon { transform: rotate(45deg); }
     .soon { padding: 12px 18px 12px 14px; font-size: 0.95rem; }
     .motto { gap: 8px; letter-spacing: 0.12em; }
 }
+
+/* legal sections generated from the facts file */
+.legal-section > * + * { margin-top: 18px; }
+.legal-section { scroll-margin-top: calc(var(--header) + 24px); }
+.legal .table-wrap { overflow-x: auto; border-radius: 18px; }
+.legal .legal-table th { width: auto; }
+.legal .legal-table thead th { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+.legal .legal-table small { color: var(--faint); font-weight: 400; }
+@media (max-width: 640px) {
+    .legal .legal-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .legal .legal-table td::before { content: attr(data-label); display: block; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 650; color: var(--faint); }
+    .legal .legal-table tr { display: block; border-top: 1px solid var(--line); }
+}
