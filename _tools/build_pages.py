@@ -370,8 +370,7 @@ def lang_link(page, cls="lang-switch"):
     other = PAGES[info["alt"]]
     t = T[info["lang"]]
     cls_attr = f' class="{cls}"' if cls else ""
-    return (f'<a{cls_attr} href="{other["path"]}" hreflang="{t["lang_code"]}" lang="{t["lang_code"]}" '
-            f'aria-label="{esc(t["lang_aria"])}">{t["lang_name"]}</a>')
+    return (f'<a{cls_attr} href="{other["path"]}" hreflang="{t["lang_code"]}" lang="{t["lang_code"]}">{t["lang_name"]}</a>')
 
 
 def header(state, page):
