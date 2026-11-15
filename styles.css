@@ -821,3 +821,179 @@ details[open] > summary .qa-icon { transform: rotate(45deg); }
     .legal .legal-table td::before { content: attr(data-label); display: block; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 650; color: var(--faint); }
     .legal .legal-table tr { display: block; border-top: 1px solid var(--line); }
 }
+
+/* =====================================================================================
+   Visto Apps skin (2026-11): aurora from the app palette, glass cards, Instrument Serif
+   headlines with an italic accent line, Inter text, pill nav, self-hosted fonts.
+   Layout rules above are unchanged; everything below only re-skins them.
+   ===================================================================================== */
+
+@font-face { font-family: "Instrument Serif"; src: url("/assets/fonts/instrument-serif.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Instrument Serif"; src: url("/assets/fonts/instrument-serif-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("/assets/fonts/inter.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+
+:root {
+    /* app palette: the only block that changes between app sites */
+    --c1: #2b8cff;
+    --c2: #1a3aa8;
+    --c3: #4cc3ff;
+    --accent-a: #b4d9ff;
+    --accent-b: #7fe0ff;
+    --on-c1: #04122c;
+    /* shared */
+    --bg: #040b1a;
+    --bg-2: #081633;
+    --bg-3: #0c1f45;
+    --ink: #f3f7fc;
+    --ink-2: #d2dcec;
+    --muted: #a6b6cf;
+    --faint: #8496b1;
+    --line: rgba(255, 255, 255, 0.12);
+    --line-2: rgba(255, 255, 255, 0.18);
+    --glass-line: rgba(255, 255, 255, 0.14);
+    --blue-1: var(--accent-a);
+    --blue-2: #5aa8ff;
+    --blue-3: var(--c1);
+    --blue-ink: #a8d3ff;
+    --glow: linear-gradient(95deg, var(--accent-a), var(--accent-b) 60%, #fff);
+    --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --radius: 28px;
+    --header: 72px;
+}
+
+html { background: var(--bg); }
+body { position: relative; background: none; font-family: var(--font); }
+body::after { display: none; }
+body::before {
+    content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1500px; z-index: -1; pointer-events: none;
+    background:
+        radial-gradient(38% 30% at 18% 8%, color-mix(in srgb, var(--c1) 55%, transparent), transparent 70%),
+        radial-gradient(34% 28% at 82% 14%, color-mix(in srgb, var(--c2) 70%, transparent), transparent 70%),
+        radial-gradient(46% 30% at 50% 40%, color-mix(in srgb, var(--c3) 24%, transparent), transparent 72%),
+        radial-gradient(60% 40% at 50% 0%, color-mix(in srgb, var(--c1) 22%, var(--bg-2)), transparent 80%),
+        linear-gradient(180deg, var(--bg-2), var(--bg) 85%);
+    -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent);
+            mask-image: linear-gradient(180deg, #000 70%, transparent);
+}
+
+/* serif headlines with an italic accent line */
+.hero h1, .section-title, .chapter h2, .pro h2, .final h2, .page-hero h1, .notfound h1, .contact-card h2 {
+    font-family: var(--serif); font-weight: 400; letter-spacing: -0.01em; line-height: 1.02; text-wrap: balance;
+}
+.hero h1 { font-size: clamp(3rem, 6.4vw, 5.9rem); line-height: 0.98; }
+.section-title, .chapter h2, .pro h2, .final h2 { font-size: clamp(2.5rem, 5vw, 4.6rem); }
+.page-hero h1 { font-size: clamp(2.8rem, 5.8vw, 5rem); }
+.notfound h1 { font-size: clamp(2.6rem, 5.4vw, 3.6rem); }
+.legal h2, .faq-item h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -0.01em; }
+.legal h2 { font-size: clamp(1.8rem, 2.8vw, 2.3rem); }
+.faq-item h2 { font-size: clamp(1.6rem, 2.4vw, 2rem); }
+.glow {
+    font-style: italic; padding-right: 0.06em; padding-bottom: 0; filter: none;
+    background: linear-gradient(95deg, var(--accent-a), var(--accent-b) 60%, color-mix(in srgb, var(--accent-b) 60%, white));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.proof-grid .num, .widget-num, .week-value { font-family: var(--serif); font-weight: 400; letter-spacing: -0.01em; }
+.proof-grid .num { font-size: clamp(2.6rem, 3.6vw, 3.5rem); filter: none; }
+.laurel-text { font-family: var(--font); }
+
+.eyebrow {
+    display: block; gap: 0; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.3em; color: color-mix(in srgb, var(--c3) 70%, white);
+}
+.eyebrow::before, .eyebrow::after { display: none; }
+.eyebrow-gold { color: var(--gold-1); }
+
+/* glass */
+.glass, .tile, .privacy-card, .proof-grid {
+    background: linear-gradient(160deg, color-mix(in srgb, var(--c1) 13%, rgba(255, 255, 255, 0.05)), rgba(255, 255, 255, 0.03));
+    border: 1px solid var(--glass-line);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+.tile-widget, .privacy-card--main {
+    background: radial-gradient(90% 70% at 50% 100%, color-mix(in srgb, var(--c1) 26%, transparent), transparent 70%),
+                linear-gradient(160deg, color-mix(in srgb, var(--c1) 13%, rgba(255, 255, 255, 0.05)), rgba(255, 255, 255, 0.03));
+}
+.privacy-card--main { background: radial-gradient(80% 60% at 0% 0%, rgba(61, 220, 132, 0.12), transparent 70%), linear-gradient(160deg, color-mix(in srgb, var(--c1) 13%, rgba(255, 255, 255, 0.05)), rgba(255, 255, 255, 0.03)); }
+.tile, .privacy-card { transition: transform 0.25s cubic-bezier(.2, .7, .2, 1), border-color 0.25s, box-shadow 0.25s; }
+.tile:hover, .privacy-card:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--c1) 55%, white 10%); box-shadow: 0 0 34px color-mix(in srgb, var(--c1) 24%, transparent); }
+.pro-card {
+    background: linear-gradient(160deg, color-mix(in srgb, var(--c1) 22%, rgba(255, 255, 255, 0.05)), color-mix(in srgb, var(--c2) 22%, rgba(255, 255, 255, 0.03)));
+    border: 1px solid color-mix(in srgb, var(--c1) 55%, white 10%);
+    box-shadow: 0 0 40px color-mix(in srgb, var(--c1) 22%, transparent), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+.pro-list { border-top-color: var(--line); }
+
+/* header: logo + pill nav */
+.site-header { background: rgba(4, 11, 26, 0.6); border-bottom: 0; padding: 4px 0; }
+.brand img { box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35); border-radius: 22.5%; }
+.nav {
+    gap: 2px; padding: 5px; border-radius: 999px;
+    background: color-mix(in srgb, var(--c1) 12%, rgba(8, 22, 51, 0.6));
+    border: 1px solid color-mix(in srgb, var(--c1) 38%, transparent);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0 24px color-mix(in srgb, var(--c1) 18%, transparent);
+}
+.nav a { padding: 8px 15px; border-radius: 999px; font-size: 0.92rem; font-weight: 500; color: var(--ink); white-space: nowrap; transition: background 0.2s; }
+.nav a:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
+.nav a[aria-current="page"] { background: color-mix(in srgb, var(--c1) 45%, rgba(255, 255, 255, 0.06)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2); }
+.nav .btn-primary { margin-left: 4px; padding: 8px 16px; min-height: 0; color: var(--on-c1); }
+.nav .btn-primary:hover { color: var(--on-c1); background: linear-gradient(180deg, color-mix(in srgb, var(--c1) 40%, white), var(--c1)); }
+
+/* buttons */
+.btn { font-family: var(--font); font-weight: 600; }
+.btn-primary {
+    color: var(--on-c1);
+    background: linear-gradient(180deg, color-mix(in srgb, var(--c1) 55%, white), var(--c1));
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.5) inset, 0 10px 36px color-mix(in srgb, var(--c1) 50%, transparent);
+}
+.btn-primary:hover { color: var(--on-c1); box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.7) inset, 0 14px 46px color-mix(in srgb, var(--c1) 65%, transparent); }
+.btn-ghost { background: rgba(255, 255, 255, 0.07); border-color: var(--line-2); }
+
+/* hero: photo fades into the aurora instead of a solid navy */
+.hero-bg {
+    -webkit-mask-image: linear-gradient(90deg, #000 38%, transparent 98%), linear-gradient(180deg, #000 70%, transparent);
+            mask-image: linear-gradient(90deg, #000 38%, transparent 98%), linear-gradient(180deg, #000 70%, transparent);
+    -webkit-mask-composite: source-in; mask-composite: intersect;
+}
+.hero::before {
+    background:
+        linear-gradient(90deg, rgba(4, 11, 26, 0.6) 0%, rgba(4, 11, 26, 0.3) 34%, transparent 62%),
+        radial-gradient(640px 520px at 78% 48%, color-mix(in srgb, var(--c1) 22%, transparent), transparent 70%);
+}
+.hero .lede { text-shadow: 0 1px 18px rgba(4, 11, 26, 0.9); color: var(--ink-2); }
+.hero-stage::before { background: radial-gradient(closest-side, color-mix(in srgb, var(--c1) 50%, transparent), transparent); }
+.stage::before { background: radial-gradient(closest-side, color-mix(in srgb, var(--c1) 40%, transparent), transparent); }
+.motto { color: var(--ink); border-color: color-mix(in srgb, var(--c1) 45%, transparent); background: color-mix(in srgb, var(--c1) 16%, rgba(255, 255, 255, 0.04)); box-shadow: none; }
+.motto i { background: var(--c3); }
+.ticks svg, .legal li::marker { color: var(--c1); }
+.ticks svg { color: var(--c3); }
+.qa-icon { color: var(--c3); }
+.pro-fine, .fine { color: var(--faint); }
+
+/* chapters, pro and final sit below the aurora: keep their navy fades on the new --bg */
+.chapter::before, .pro::before, .final::before { --bg: #040b1a; }
+
+/* footer */
+.site-footer { margin-top: 20px; padding-top: 56px; background: rgba(2, 8, 20, 0.62); border-top: 1px solid rgba(255, 255, 255, 0.08); }
+.footer-col h2 { font-size: 0.75rem; letter-spacing: 0.22em; font-weight: 600; }
+.footer-bottom a { color: var(--ink-2); }
+.footer-bottom { padding-bottom: 28px; }
+
+@media (max-width: 900px) {
+    .hero-bg {
+        -webkit-mask-image: linear-gradient(180deg, #000 40%, transparent);
+                mask-image: linear-gradient(180deg, #000 40%, transparent);
+    }
+    .hero::before {
+        background:
+            linear-gradient(180deg, rgba(4, 11, 26, 0.5) 0%, rgba(4, 11, 26, 0.7) 34%, rgba(4, 11, 26, 0.25) 56%, transparent 74%),
+            radial-gradient(500px 360px at 50% 70%, color-mix(in srgb, var(--c1) 22%, transparent), transparent 70%);
+    }
+}
+@media (max-width: 640px) {
+    :root { --gutter: 28px; }
+    body { font-size: 0.97rem; }
+    .site-header .container { padding-inline: 16px; }
+    .privacy-grid, .bento, .proof-grid, .leaves, .pro-card, .contact-card, .legal .table-wrap, .toc { margin-inline: -12px; }
+    .legal-layout, .site-footer .container { padding-inline: 28px; }
+}
+@media (forced-colors: active) { .glow { color: CanvasText; background: none; } }

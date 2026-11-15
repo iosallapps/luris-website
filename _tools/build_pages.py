@@ -416,11 +416,9 @@ def footer(state, trademarks, nav=None):
         'Check with a doctor before starting a new exercise programme. '
         '<a href="/terms.html#accuracy">Read the health disclaimer</a>.</p>\n'
         '            <div class="footer-bottom">\n'
-        f'                <span>&copy; {YEAR} {DEVELOPER}</span>\n'
+        f'                <span>&copy; {YEAR} {DEVELOPER}. <a href="https://vistoapps.com" rel="noopener">Made by Visto Apps</a></span>\n'
         f'                <span class="trademarks">{trademarks}</span>\n'
         '            </div>\n'
-        '            <svg class="footer-mark" viewBox="0 0 6679 1493" aria-hidden="true" focusable="false">'
-        '<use href="#wordmark"/></svg>\n'
         '        </div>\n'
         '    </footer>\n'
     )
@@ -441,11 +439,13 @@ def head(state):
         '    <meta name="referrer" content="strict-origin-when-cross-origin">\n'
         '    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
         '    <meta name="color-scheme" content="dark">\n'
-        '    <meta name="theme-color" content="#050A16">\n'
+        '    <meta name="theme-color" content="#040b1a">\n'
         f'{banner}'
         '    <link rel="icon" href="/favicon.ico" sizes="48x48">\n'
         '    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">\n'
         '    <link rel="apple-touch-icon" href="/apple-touch-icon.png">\n'
+        '    <link rel="preload" href="/assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>\n'
+        '    <link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>\n'
         f'    <link rel="stylesheet" href="/styles.css?v={css_version()}">\n'
     )
 
