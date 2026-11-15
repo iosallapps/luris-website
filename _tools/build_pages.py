@@ -14,9 +14,12 @@ sprite, <head> basics, SEO tags, JSON-LD, the download call to action and the Ap
 trademark credit are identical on every page and change in one place. Everything
 outside the markers (the page content, the legal text) is never touched.
 
-Regions: head, meta, sprite, header, footer (every page); hero-cta, final-cta,
-jsonld (home page only). It also writes sitemap.xml, with each page's lastmod taken
-from git (today for a page that differs from the last commit).
+Regions: head, meta, sprite, header, footer (every page); jsonld (every indexable page:
+the app, site and FAQ graph on the home pages, a BreadcrumbList on the others); hero-cta,
+final-cta (home pages only). Romanian pages live in ro/ and are
+edited by hand like the English ones; header, footer, meta, hreflang pairs and JSON-LD come
+from the T table and PAGES here. It also writes sitemap.xml with hreflang alternates, each
+page's lastmod taken from git (today for a page that differs from the last commit).
 
 State lives in _tools/release.json: {"released": false, "provider_token": ""}.
 Before release the site links to nothing on the App Store (the product page returns
@@ -45,6 +48,9 @@ APP_ID = "6813596103"
 APP_NAME = "Luris: Step & Activity Tracker"   # the App Store Connect name
 CONTACT = "iosallapps@gmail.com"
 DEVELOPER = "Visto Apps, the brand of Darius Cirjan"
+DEVELOPER_ORG = {"@type": "Organization", "@id": ORIGIN + "/#developer", "name": "Visto Apps",
+                 "url": "https://vistoapps.com", "founder": {"@type": "Person", "name": "Darius Cirjan"}}
+MORE_APPS = "https://vistoapps.com/apps.html"
 YEAR = 2026
 OG_IMAGE = {"path": "/og-image.jpg", "width": 1200, "height": 630,
             "alt": "Luris on two iPhones, the Home tab with today's steps ring and a run drawn on the "
@@ -54,42 +60,128 @@ LANGUAGES = ["en", "ar", "bn", "ca", "zh-Hans", "zh-Hant", "hr", "cs", "da", "nl
 
 PAGES = {
     "index.html": {
-        "path": "/", "nav": None, "og_type": "website",
+        "path": "/", "nav": None, "og_type": "website", "lang": "en", "alt": "ro/index.html",
         "title": f"{APP_NAME} for iPhone",
-        "description": "Luris counts your steps from Apple Health, maps your walks, runs and bike rides "
-                       "with GPS and builds a six-week plan from 873 exercises. No account needed.",
+        "description": "Luris is a free step counter and fitness tracker for iPhone. Steps from Apple Health, "
+                       "GPS maps of walks, runs and rides, and a six-week plan.",
         "social": "Steps, GPS walks, runs and rides, a six-week plan and progress you can see, built on "
                   "Apple Health.",
+        "crumb": None,
     },
     "support.html": {
-        "path": "/support.html", "nav": "support", "og_type": "website",
+        "path": "/support.html", "nav": "support", "og_type": "website", "lang": "en", "alt": "ro/support.html",
         "title": "Luris Support: Help and Questions",
-        "description": "Get help with Luris: contact the developer, and answers about Apple Health, "
-                       "GPS walks, runs and rides, the Game Center leaderboard, units, supported iPhones "
-                       "and deleting your data.",
+        "description": "Help for Luris: contact the developer and get answers on Apple Health, GPS walks, "
+                       "runs and rides, the leaderboard, units and deleting your data.",
         "social": "Contact the developer and find answers about Apple Health, GPS walks, runs and rides, "
                   "the leaderboard and your data.",
+        "crumb": "Support",
     },
     "privacy.html": {
-        "path": "/privacy.html", "nav": None, "og_type": "article",
+        "path": "/privacy.html", "nav": None, "og_type": "article", "lang": "en", "alt": "ro/privacy.html",
         "title": "Luris Privacy Policy",
-        "description": "How Luris handles your data: health data stays on your iPhone. Ads, analytics and "
-                       "crash reports from Google, purchases through RevenueCat, and what goes to Apple.",
+        "description": "How Luris handles your data: health data stays on your iPhone. Google ads, "
+                       "analytics and crash reports, RevenueCat purchases, and what goes to Apple.",
         "social": "Health data stays on your iPhone. What goes to Apple, and nothing to the developer.",
+        "crumb": "Privacy Policy",
     },
     "terms.html": {
-        "path": "/terms.html", "nav": None, "og_type": "article",
+        "path": "/terms.html", "nav": None, "og_type": "article", "lang": "en", "alt": "ro/terms.html",
         "title": "Luris Terms of Use",
-        "description": "The terms for using Luris, the fitness tracker for iPhone: your licence, the "
-                       "health and fitness disclaimer, safety on walks, runs and rides and the leaderboard "
-                       "rules.",
+        "description": "The terms for using Luris, the fitness tracker for iPhone: your licence, the health "
+                       "disclaimer, safety on walks, runs and rides, and leaderboard rules.",
         "social": "Your licence, the health and fitness disclaimer, safety on walks, runs and rides and "
                   "the leaderboard rules.",
+        "crumb": "Terms of Use",
+    },
+    "ro/index.html": {
+        "path": "/ro/", "nav": None, "og_type": "website", "lang": "ro", "alt": "index.html",
+        "title": "Luris: Contor de pași și activitate pe iPhone",
+        "description": "Luris, contor de pași și tracker fitness gratuit pentru iPhone. Pași din Apple Health, "
+                       "trasee GPS pentru mers, alergare și ciclism, plan de șase săptămâni.",
+        "social": "Pași, trasee GPS pentru mers, alergare și ciclism, un plan de șase săptămâni și progres "
+                  "pe care îl vezi, construit pe Apple Health.",
+        "crumb": None,
+    },
+    "ro/support.html": {
+        "path": "/ro/support.html", "nav": "support", "og_type": "website", "lang": "ro", "alt": "support.html",
+        "title": "Asistență Luris: ajutor și întrebări",
+        "description": "Ajutor pentru Luris: contactează dezvoltatorul și găsește răspunsuri despre Apple "
+                       "Health, GPS, clasament, unități și ștergerea datelor.",
+        "social": "Contactează dezvoltatorul și găsește răspunsuri despre Apple Health, mers, alergare și "
+                  "ciclism cu GPS, clasament și datele tale.",
+        "crumb": "Asistență",
+    },
+    "ro/privacy.html": {
+        "path": "/ro/privacy.html", "nav": None, "og_type": "article", "lang": "ro", "alt": "privacy.html",
+        "title": "Politica de confidențialitate Luris",
+        "description": "Cum tratează Luris datele tale: datele de sănătate rămân pe iPhone. Reclame, analize "
+                       "și rapoarte de erori Google, achiziții RevenueCat, ce ajunge la Apple.",
+        "social": "Datele de sănătate rămân pe iPhone. Ce ajunge la Apple și nimic către dezvoltator.",
+        "crumb": "Politica de confidențialitate",
+    },
+    "ro/terms.html": {
+        "path": "/ro/terms.html", "nav": None, "og_type": "article", "lang": "ro", "alt": "terms.html",
+        "title": "Termeni de utilizare Luris",
+        "description": "Termenii de utilizare Luris, trackerul de fitness pentru iPhone: licența ta, "
+                       "avertismentul privind sănătatea, siguranța la mers, alergare și ciclism, clasament.",
+        "social": "Licența ta, avertismentul privind sănătatea și fitnessul, siguranța la mers, alergare și "
+                  "ciclism și regulile clasamentului.",
+        "crumb": "Termeni de utilizare",
     },
     "404.html": {
-        "path": None, "nav": None, "og_type": None, "robots": "noindex",
+        "path": None, "nav": None, "og_type": None, "robots": "noindex", "lang": "en", "alt": None,
         "title": "Page not found | Luris",
         "description": "This page does not exist or has moved.",
+        "crumb": None,
+    },
+}
+
+# Chrome text per language: header, footer, store block, trademark credit.
+T = {
+    "en": {
+        "prefix": "", "home_label": "Luris home", "features": "Features", "privacy": "Privacy", "questions": "Questions",
+        "support": "Support", "get": "Get Luris", "get_aria": "Get Luris on the App Store",
+        "lang_name": "Română", "lang_code": "ro", "lang_aria": "Romanian",
+        "soon": "Coming soon to the App Store", "req_soon": "For iPhone with iOS 18.0 or later.",
+        "req": "Requires iPhone with iOS 18.0 or later.", "get_big": "Get Luris on the App Store",
+        "badge_alt": "Download on the App Store", "qr_aria": "QR code that opens Luris on the App Store",
+        "qr_note": "Scan with your iPhone camera",
+        "footer_blurb": "Steps, GPS walks, runs and rides, workouts and progress for iPhone, built on Apple Health.",
+        "legal": "Legal", "privacy_policy": "Privacy Policy", "terms": "Terms of Use",
+        "chd": "Consumer Health Data Privacy", "help": "Help and questions", "delete": "Delete your data",
+        "developer": "Developer", "dev_line": "Independent developer, Romania",
+        "health_note": "Luris is not a medical device and does not give medical advice. Check with a doctor "
+                       "before starting a new exercise programme.",
+        "health_link": "Read the health disclaimer", "made_by": "Made by Visto Apps",
+        "more_apps": "More apps by Visto Apps", "lang_label": "Language", "brand": DEVELOPER,
+        "joiner": " and ", "is_tm": "is a trademark", "are_tm": "are trademarks",
+        "tm_reg": "of Apple Inc., registered in the U.S. and other countries.", "tm_plain": "of Apple Inc.",
+        "locale": "en_US", "site_inLanguage": "en",
+    },
+    "ro": {
+        "prefix": "/ro", "home_label": "Luris, acasă", "features": "Funcții", "privacy": "Confidențialitate",
+        "questions": "Întrebări", "support": "Asistență", "get": "Descarcă Luris",
+        "get_aria": "Descarcă Luris din App Store",
+        "lang_name": "English", "lang_code": "en", "lang_aria": "English",
+        "soon": "În curând în App Store", "req_soon": "Pentru iPhone cu iOS 18.0 sau mai nou.",
+        "req": "Necesită iPhone cu iOS 18.0 sau mai nou.", "get_big": "Descarcă Luris din App Store",
+        "badge_alt": "Descarcă din App Store", "qr_aria": "Cod QR care deschide Luris în App Store",
+        "qr_note": "Scanează cu camera iPhone-ului",
+        "footer_blurb": "Pași, mersuri, alergări și ture cu bicicleta cu GPS, antrenamente și progres pentru "
+                        "iPhone, construit pe Apple Health.",
+        "legal": "Juridic", "privacy_policy": "Politica de confidențialitate", "terms": "Termeni de utilizare",
+        "chd": "Datele de sănătate ale consumatorilor", "help": "Ajutor și întrebări",
+        "delete": "Șterge-ți datele",
+        "developer": "Dezvoltator", "dev_line": "Dezvoltator independent, România",
+        "health_note": "Luris nu este un dispozitiv medical și nu oferă sfaturi medicale. Consultă un medic "
+                       "înainte de a începe un nou program de exerciții.",
+        "health_link": "Citește avertismentul privind sănătatea", "made_by": "Creat de Visto Apps",
+        "more_apps": "Mai multe aplicații de la Visto Apps", "lang_label": "Limba",
+        "brand": "Visto Apps, marca lui Darius Cirjan",
+        "joiner": " și ", "is_tm": "este o marcă comercială", "are_tm": "sunt mărci comerciale",
+        "tm_reg": "ale Apple Inc., înregistrate în S.U.A. și în alte țări.", "tm_plain": "a Apple Inc.",
+        "locale": "ro_RO", "site_inLanguage": "ro",
     },
 }
 
@@ -262,33 +354,50 @@ def sprite():
     )
 
 
-def brand():
+def brand(lang="en"):
+    t = T[lang]
     return (
-        '<a class="brand" href="/" aria-label="Luris home">'
+        f'<a class="brand" href="{t["prefix"]}/" aria-label="{esc(t["home_label"])}">'
         '<img src="/img/app-icon-128.webp" width="36" height="36" alt="">'
         '<svg class="wordmark" viewBox="0 0 6679 1493" aria-hidden="true" focusable="false">'
         '<use href="#wordmark"/></svg></a>'
     )
 
 
-def header(state, nav):
+def lang_link(page, cls="lang-switch"):
+    """Plain link to the same page in the other language (no JavaScript)."""
+    info = PAGES[page]
+    other = PAGES[info["alt"]]
+    t = T[info["lang"]]
+    cls_attr = f' class="{cls}"' if cls else ""
+    return (f'<a{cls_attr} href="{other["path"]}" hreflang="{t["lang_code"]}" lang="{t["lang_code"]}" '
+            f'aria-label="{esc(t["lang_aria"])}">{t["lang_name"]}</a>')
+
+
+def header(state, page):
+    info = PAGES[page]
+    lang, nav = info["lang"], info["nav"]
+    t = T[lang]
+    p = t["prefix"]
     current = ' aria-current="page"' if nav == "support" else ""
     campaign = "web-support" if nav == "support" else "web-header"
     if state["released"]:
         cta = (f'<a class="btn btn-primary btn-small" href="{esc(store_link(state, campaign))}" '
-               'aria-label="Get Luris on the App Store">Get Luris</a>')
+               f'aria-label="{esc(t["get_aria"])}">{t["get"]}</a>')
     else:
         cta = '<span class="soon-chip"><span class="pulse" aria-hidden="true"></span>Coming soon</span>'
+    switch = f'                {lang_link(page)}\n' if info["alt"] else ""
     return (
         '    <header class="site-header">\n'
         '        <div class="container bar">\n'
-        f'            {brand()}\n'
+        f'            {brand(lang)}\n'
         '            <nav class="nav" aria-label="Primary">\n'
-        '                <a class="nav-wide" href="/#features">Features</a>\n'
-        '                <a class="nav-wide" href="/#privacy">Privacy</a>\n'
-        '                <a class="nav-wide" href="/#pro">Luris Pro</a>\n'
-        '                <a class="nav-wide" href="/#questions">Questions</a>\n'
-        f'                <a href="/support.html"{current}>Support</a>\n'
+        f'                <a class="nav-wide" href="{p}/#features">{t["features"]}</a>\n'
+        f'                <a class="nav-wide" href="{p}/#privacy">{t["privacy"]}</a>\n'
+        f'                <a class="nav-wide" href="{p}/#pro">Luris Pro</a>\n'
+        f'                <a class="nav-wide" href="{p}/#questions">{t["questions"]}</a>\n'
+        f'                <a href="{p}/support.html"{current}>{t["support"]}</a>\n'
+        f'{switch}'
         f'                {cta}\n'
         '            </nav>\n'
         '        </div>\n'
@@ -296,7 +405,8 @@ def header(state, nav):
     )
 
 
-def qr_tile(state):
+def qr_tile(state, lang="en"):
+    t = T[lang]
     sys.path.insert(0, os.path.join(HERE, "vendor"))
     import segno  # noqa: E402  (vendored)
 
@@ -319,104 +429,106 @@ def qr_tile(state):
     return (
         '<div class="qr-tile">'
         f'<svg class="qr" viewBox="0 0 {box} {box}" role="img" '
-        'aria-label="QR code that opens Luris on the App Store" shape-rendering="crispEdges">'
+        f'aria-label="{esc(t["qr_aria"])}" shape-rendering="crispEdges">'
         f'<rect width="{box}" height="{box}" fill="#fff"/>'
         f'<path fill="#000" d="{"".join(path)}"/></svg>'
-        '<p>Scan with your iPhone camera</p></div>'
+        f'<p>{t["qr_note"]}</p></div>'
     )
 
 
-def soon_pill():
-    return ('<p class="soon"><svg aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>'
-            'Coming soon to the App Store</p>')
-
-
-def store_state(state, campaign, indent, button):
+def store_state(state, campaign, indent, button, lang="en"):
+    t = T[lang]
     pad = " " * indent
     if not state["released"]:
+        soon = ('<p class="soon"><svg aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>'
+                f'{t["soon"]}</p>')
         return (
             f'{pad}<div class="store-state">\n'
-            f'{pad}    {soon_pill()}\n'
-            f'{pad}    <p class="requirement">For iPhone with iOS 18.0 or later.</p>\n'
+            f'{pad}    {soon}\n'
+            f'{pad}    <p class="requirement">{t["req_soon"]}</p>\n'
             f'{pad}</div>\n'
         )
     if button:
         link = (f'<a class="btn btn-primary btn-large" href="{esc(store_link(state, campaign))}">'
-                'Get Luris on the App Store</a>')
+                f'{t["get_big"]}</a>')
     else:
         # Apple's official badge, unaltered, 50 px tall
         link = (f'<a class="store-badge" href="{esc(store_link(state, campaign))}">'
                 '<img src="/img/badges/app-store-black-en-us.svg" width="150" height="50" '
-                'alt="Download on the App Store"></a>')
+                f'alt="{esc(t["badge_alt"])}"></a>')
     return (
         f'{pad}<div class="store-state">\n'
         f'{pad}    <div class="store-row">\n'
         f'{pad}        {link}\n'
-        f'{pad}        {qr_tile(state)}\n'
+        f'{pad}        {qr_tile(state, lang)}\n'
         f'{pad}    </div>\n'
-        f'{pad}    <p class="requirement">Requires iPhone with iOS 18.0 or later.</p>\n'
+        f'{pad}    <p class="requirement">{t["req"]}</p>\n'
         f'{pad}</div>\n'
     )
 
 
-def hero_cta(state):
-    return store_state(state, "web-hero", 20, button=False)
+def hero_cta(state, lang="en"):
+    return store_state(state, "web-hero", 20, button=False, lang=lang)
 
 
-def final_cta(state):
-    return store_state(state, "web-final", 20, button=True)
+def final_cta(state, lang="en"):
+    return store_state(state, "web-final", 20, button=True, lang=lang)
 
 
-def footer(state, trademarks, nav=None):
+def footer(state, trademarks, page):
+    info = PAGES[page]
+    lang, nav = info["lang"], info["nav"]
+    t = T[lang]
+    p = t["prefix"]
     store = ""
     if state["released"]:
         campaign = "web-support" if nav == "support" else "web-footer"
         store = f'\n                        <li><a href="{esc(store_link(state, campaign))}">App Store</a></li>'
+    switch = f'\n                        <li>{lang_link(page, "")}</li>' if info["alt"] else ""
     return (
         '    <footer class="site-footer">\n'
         '        <div class="container">\n'
         '            <div class="footer-grid">\n'
         '                <div class="footer-brand">\n'
-        f'                    {brand()}\n'
-        '                    <p>Steps, GPS walks, runs and rides, workouts and progress for iPhone, built on '
-        'Apple Health.</p>\n'
+        f'                    {brand(lang)}\n'
+        f'                    <p>{t["footer_blurb"]}</p>\n'
         '                </div>\n'
         '                <nav class="footer-col" aria-labelledby="footer-luris">\n'
         '                    <h2 id="footer-luris">Luris</h2>\n'
         '                    <ul>\n'
-        '                        <li><a href="/#features">Features</a></li>\n'
-        '                        <li><a href="/#privacy">Privacy</a></li>\n'
-        '                        <li><a href="/#pro">Luris Pro</a></li>\n'
-        f'                        <li><a href="/#questions">Questions</a></li>{store}\n'
+        f'                        <li><a href="{p}/#features">{t["features"]}</a></li>\n'
+        f'                        <li><a href="{p}/#privacy">{t["privacy"]}</a></li>\n'
+        f'                        <li><a href="{p}/#pro">Luris Pro</a></li>\n'
+        f'                        <li><a href="{p}/#questions">{t["questions"]}</a></li>{store}{switch}\n'
         '                    </ul>\n'
         '                </nav>\n'
         '                <nav class="footer-col" aria-labelledby="footer-legal">\n'
-        '                    <h2 id="footer-legal">Legal</h2>\n'
+        f'                    <h2 id="footer-legal">{t["legal"]}</h2>\n'
         '                    <ul>\n'
-        '                        <li><a href="/privacy.html">Privacy Policy</a></li>\n'
-        '                        <li><a href="/terms.html">Terms of Use</a></li>\n'
-        '                        <li><a href="/privacy.html#consumer-health-data">Consumer Health Data Privacy</a></li>\n'
+        f'                        <li><a href="{p}/privacy.html">{t["privacy_policy"]}</a></li>\n'
+        f'                        <li><a href="{p}/terms.html">{t["terms"]}</a></li>\n'
+        f'                        <li><a href="{p}/privacy.html#consumer-health-data">{t["chd"]}</a></li>\n'
         '                    </ul>\n'
         '                </nav>\n'
         '                <nav class="footer-col" aria-labelledby="footer-support">\n'
-        '                    <h2 id="footer-support">Support</h2>\n'
+        f'                    <h2 id="footer-support">{t["support"]}</h2>\n'
         '                    <ul>\n'
-        '                        <li><a href="/support.html">Help and questions</a></li>\n'
-        '                        <li><a href="/support.html#delete">Delete your data</a></li>\n'
+        f'                        <li><a href="{p}/support.html">{t["help"]}</a></li>\n'
+        f'                        <li><a href="{p}/support.html#delete">{t["delete"]}</a></li>\n'
         f'                        <li><a href="mailto:{CONTACT}">{CONTACT}</a></li>\n'
         '                    </ul>\n'
         '                </nav>\n'
         '                <section class="footer-col footer-dev" aria-labelledby="footer-dev">\n'
-        '                    <h2 id="footer-dev">Developer</h2>\n'
-        f'                    <p>{DEVELOPER}<br>Independent developer, Romania<br>'
-        f'<a href="mailto:{CONTACT}">{CONTACT}</a></p>\n'
+        f'                    <h2 id="footer-dev">{t["developer"]}</h2>\n'
+        f'                    <p>{t["brand"]}<br>{t["dev_line"]}<br>'
+        f'<a href="mailto:{CONTACT}">{CONTACT}</a><br>'
+        f'<a href="{MORE_APPS}" rel="noopener">{t["more_apps"]}</a></p>\n'
         '                </section>\n'
         '            </div>\n'
-        '            <p class="footer-health">Luris is not a medical device and does not give medical advice. '
-        'Check with a doctor before starting a new exercise programme. '
-        '<a href="/terms.html#accuracy">Read the health disclaimer</a>.</p>\n'
+        f'            <p class="footer-health">{t["health_note"]} '
+        f'<a href="{p}/terms.html#accuracy">{t["health_link"]}</a>.</p>\n'
         '            <div class="footer-bottom">\n'
-        f'                <span>&copy; {YEAR} {DEVELOPER}. <a href="https://vistoapps.com" rel="noopener">Made by Visto Apps</a></span>\n'
+        f'                <span>&copy; {YEAR} {t["brand"]}. <a href="https://vistoapps.com" rel="noopener">{t["made_by"]}</a></span>\n'
         f'                <span class="trademarks">{trademarks}</span>\n'
         '            </div>\n'
         '        </div>\n'
@@ -450,20 +562,35 @@ def head(state):
     )
 
 
+def page_url(page):
+    return ORIGIN + PAGES[page]["path"]
+
+
 def meta(page):
     info = PAGES[page]
+    t = T[info["lang"]]
     lines = [f'    <title>{esc(info["title"])}</title>',
              f'    <meta name="description" content="{esc(info["description"])}">']
     if info.get("robots"):
         lines.append(f'    <meta name="robots" content="{info["robots"]}">')
     if info["path"]:
-        url = ORIGIN + info["path"]
+        url = page_url(page)
         image = ORIGIN + OG_IMAGE["path"]
+        lines.append(f'    <link rel="canonical" href="{url}">')
+        if info["alt"]:
+            en = page if info["lang"] == "en" else info["alt"]
+            ro = info["alt"] if info["lang"] == "en" else page
+            lines += [
+                f'    <link rel="alternate" hreflang="en" href="{page_url(en)}">',
+                f'    <link rel="alternate" hreflang="ro" href="{page_url(ro)}">',
+                f'    <link rel="alternate" hreflang="x-default" href="{page_url(en)}">',
+            ]
+        alt_locale = T["en" if info["lang"] == "ro" else "ro"]["locale"]
         lines += [
-            f'    <link rel="canonical" href="{url}">',
             f'    <meta property="og:type" content="{info["og_type"]}">',
             '    <meta property="og:site_name" content="Luris">',
-            '    <meta property="og:locale" content="en_US">',
+            f'    <meta property="og:locale" content="{t["locale"]}">',
+            f'    <meta property="og:locale:alternate" content="{alt_locale}">',
             f'    <meta property="og:url" content="{url}">',
             f'    <meta property="og:title" content="{esc(info["title"])}">',
             f'    <meta property="og:description" content="{esc(info["social"])}">',
@@ -481,49 +608,100 @@ def meta(page):
     return "\n".join(lines) + "\n"
 
 
-def jsonld(state):
-    app = {
-        "@type": "MobileApplication",
-        "@id": f"{ORIGIN}/#app",
-        "name": "Luris",
-        "alternateName": APP_NAME,
-        "url": f"{ORIGIN}/",
-        "description": PAGES["index.html"]["description"],
-        "applicationCategory": "HealthApplication",
-        "applicationSubCategory": "Step counter and GPS walk, run and ride tracker",
-        "operatingSystem": "iOS 18.0 or later",
-        "availableOnDevice": "iPhone",
-        "inLanguage": LANGUAGES,
-        "featureList": [
-            "Steps and activity from Apple Health",
-            "GPS walk, run and bike ride tracking with a map",
-            "Six-week workout plan",
-            "873 exercises with images",
-            "Weight and body fat trend charts and progress photos",
-            "49 achievements",
-            "Weekly Game Center steps leaderboard",
-            "Share Studio cards",
-            "Home Screen and Lock Screen widget",
-            "Live Activity",
-        ],
-        "image": f"{ORIGIN}/img/app-icon-512.png",
-        "screenshot": [f"{ORIGIN}/img/screens/home-screen.jpg", f"{ORIGIN}/img/screens/route-screen.jpg"],
-        "author": {"@id": f"{ORIGIN}/#developer"},
-        "publisher": {"@id": f"{ORIGIN}/#developer"},
-    }
-    if state["released"]:
-        app["downloadUrl"] = f"https://apps.apple.com/app/id{APP_ID}"
-        app["sameAs"] = [f"https://apps.apple.com/app/id{APP_ID}"]
-    graph = {
-        "@context": "https://schema.org",
-        "@graph": [
-            {"@type": "WebSite", "@id": f"{ORIGIN}/#website", "url": f"{ORIGIN}/", "name": "Luris",
-             "inLanguage": "en"},
-            {"@type": "Organization", "@id": f"{ORIGIN}/#developer", "name": "Visto Apps",
-             "description": DEVELOPER, "url": "https://vistoapps.com", "email": f"mailto:{CONTACT}"},
-            app,
-        ],
-    }
+FEATURES = {
+    "en": [
+        "Steps and activity from Apple Health",
+        "GPS walk, run and bike ride tracking with a map",
+        "Six-week workout plan",
+        "873 exercises with images",
+        "Weight and body fat trend charts and progress photos",
+        "49 achievements",
+        "Weekly Game Center steps leaderboard",
+        "Share Studio cards",
+        "Home Screen and Lock Screen widget",
+        "Live Activity",
+    ],
+    "ro": [
+        "Pași și activitate din Apple Health",
+        "Urmărire GPS pentru mers, alergare și ciclism, cu hartă",
+        "Plan de antrenament de șase săptămâni",
+        "873 de exerciții cu imagini",
+        "Grafice de evoluție pentru greutate și grăsime corporală și poze de progres",
+        "49 de realizări",
+        "Clasament săptămânal de pași în Game Center",
+        "Carduri Share Studio",
+        "Widget pe ecranul de start și pe ecranul de blocare",
+        "Live Activity",
+    ],
+}
+CATEGORY = {"en": "Step counter and GPS walk, run and ride tracker",
+            "ro": "Contor de pași și tracker GPS pentru mers, alergare și ciclism"}
+CRUMB_HOME = {"en": "Luris", "ro": "Luris"}
+
+
+def faq_entities(markup):
+    """FAQPage questions, taken from the visible FAQ of the page itself."""
+    items = []
+    for block in re.findall(r'<details class="qa-item">(.*?)</details>', markup, re.S):
+        question = re.search(r"<summary><span>(.*?)</span>", block, re.S)
+        answer = re.search(r'<div class="qa-body"><p>(.*?)</p></div>', block, re.S)
+        if not (question and answer):
+            continue
+        text = html.unescape(re.sub(r"<[^>]+>", "", answer.group(1))).strip()
+        items.append({"@type": "Question", "name": html.unescape(question.group(1)).strip(),
+                      "acceptedAnswer": {"@type": "Answer", "text": text}})
+    return items
+
+
+def jsonld(state, page, markup):
+    info = PAGES[page]
+    lang = info["lang"]
+    t = T[lang]
+    home_url = f"{ORIGIN}{t['prefix']}/"
+    if info["crumb"]:
+        graph = {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": CRUMB_HOME[lang], "item": home_url},
+                {"@type": "ListItem", "position": 2, "name": info["crumb"], "item": page_url(page)},
+            ],
+        }
+    else:
+        app = {
+            "@type": "MobileApplication",
+            "@id": f"{home_url}#app",
+            "name": "Luris",
+            "alternateName": APP_NAME,
+            "url": home_url,
+            "description": info["description"],
+            "applicationCategory": "HealthApplication",
+            "applicationSubCategory": CATEGORY[lang],
+            "operatingSystem": "iOS 18.0 or later",
+            "availableOnDevice": "iPhone",
+            "inLanguage": LANGUAGES,
+            "featureList": FEATURES[lang],
+            "image": f"{ORIGIN}/img/app-icon-512.png",
+            "screenshot": [f"{ORIGIN}/img/screens/home-screen.jpg", f"{ORIGIN}/img/screens/route-screen.jpg"],
+            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+            "author": {"@id": f"{ORIGIN}/#developer"},
+            "publisher": {"@id": f"{ORIGIN}/#developer"},
+        }
+        if state["released"]:
+            app["downloadUrl"] = f"https://apps.apple.com/app/id{APP_ID}"
+            app["installUrl"] = f"https://apps.apple.com/app/id{APP_ID}"
+            app["sameAs"] = [f"https://apps.apple.com/app/id{APP_ID}"]
+        faq = faq_entities(markup)
+        graph = {
+            "@context": "https://schema.org",
+            "@graph": [
+                {"@type": "WebSite", "@id": f"{home_url}#website", "url": home_url, "name": "Luris",
+                 "inLanguage": t["site_inLanguage"], "publisher": {"@id": f"{ORIGIN}/#developer"}},
+                dict(DEVELOPER_ORG, description=DEVELOPER, email=CONTACT),
+                app,
+            ] + ([{"@type": "FAQPage", "@id": f"{home_url}#faq", "inLanguage": t["site_inLanguage"],
+                   "mainEntity": faq}] if faq else []),
+        }
     body = json.dumps(graph, indent=2, ensure_ascii=False)
     body = "\n".join("    " + line for line in body.splitlines())
     return f'    <script type="application/ld+json">\n{body}\n    </script>\n'
@@ -544,36 +722,42 @@ def visible_text(markup):
     return html.unescape(f"{text} {alts} {labels}")
 
 
-def trademark_credit(markup):
+def trademark_credit(markup, lang="en"):
+    t = T[lang]
     text = visible_text(markup)
     registered = [m for m in REGISTERED_MARKS if re.search(MARK_PATTERNS[m], text)]
     unregistered = [m for m in UNREGISTERED_MARKS if re.search(MARK_PATTERNS[m], text)]
 
     def join(items):
-        return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1]
+        if len(items) == 1:
+            return items[0]
+        return ", ".join(items[:-1]) + t["joiner"] + items[-1]
 
     parts = []
     if registered:
-        verb = "is a trademark" if len(registered) == 1 else "are trademarks"
-        parts.append(f"{join(registered)} {verb} of Apple Inc., registered in the U.S. and other countries.")
+        verb = t["is_tm"] if len(registered) == 1 else t["are_tm"]
+        parts.append(f"{join(registered)} {verb} {t['tm_reg']}")
     if unregistered:
-        verb = "is a trademark" if len(unregistered) == 1 else "are trademarks"
-        parts.append(f"{join(unregistered)} {verb} of Apple Inc.")
+        verb = t["is_tm"] if len(unregistered) == 1 else t["are_tm"]
+        parts.append(f"{join(unregistered)} {verb} {t['tm_plain']}")
     return " ".join(parts)
 
 
 def render(page, markup, state):
     info = PAGES[page]
-    home = page == "index.html"
+    lang = info["lang"]
+    home = info["path"] in ("/", "/ro/")
     fragments = {
         "head": head(state),
         "meta": meta(page),
         "sprite": sprite(),
-        "header": header(state, info["nav"]),
-        "footer": footer(state, "TRADEMARKS", info["nav"]),
+        "header": header(state, page),
+        "footer": footer(state, "TRADEMARKS", page),
     }
     if home:
-        fragments.update({"hero-cta": hero_cta(state), "final-cta": final_cta(state), "jsonld": jsonld(state)})
+        fragments.update({"hero-cta": hero_cta(state, lang), "final-cta": final_cta(state, lang)})
+    if info["path"]:
+        fragments["jsonld"] = jsonld(state, page, markup)
 
     seen = set()
 
@@ -589,7 +773,7 @@ def render(page, markup, state):
     if missing:
         sys.exit(f"{page}: missing region(s) {', '.join(sorted(missing))}")
     # the credit names the marks the finished page uses, the credit line itself excluded
-    return out.replace("TRADEMARKS", esc(trademark_credit(out.replace("TRADEMARKS", ""))))
+    return out.replace("TRADEMARKS", esc(trademark_credit(out.replace("TRADEMARKS", ""), lang)))
 
 
 def git_lastmod(page):
@@ -605,10 +789,19 @@ def git_lastmod(page):
 def write_sitemap():
     rows = []
     for page, info in PAGES.items():
-        if info["path"]:
-            rows.append(f"    <url><loc>{ORIGIN}{info['path']}</loc><lastmod>{git_lastmod(page)}</lastmod></url>")
+        if not info["path"]:
+            continue
+        links = ""
+        if info["alt"]:
+            en = page if info["lang"] == "en" else info["alt"]
+            ro = info["alt"] if info["lang"] == "en" else page
+            for code, target in (("en", en), ("ro", ro), ("x-default", en)):
+                links += (f'\n        <xhtml:link rel="alternate" hreflang="{code}" href="{page_url(target)}"/>')
+        rows.append(f"    <url>\n        <loc>{page_url(page)}</loc>\n        <lastmod>{git_lastmod(page)}</lastmod>"
+                    f"{links}\n    </url>")
     body = ('<?xml version="1.0" encoding="UTF-8"?>\n'
-            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "\n".join(rows) + "\n</urlset>\n")
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+            'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + "\n".join(rows) + "\n</urlset>\n")
     with open(os.path.join(SITE, "sitemap.xml"), "w") as handle:
         handle.write(body)
 

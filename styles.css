@@ -997,3 +997,13 @@ body::before {
     .legal-layout, .site-footer .container { padding-inline: 28px; }
 }
 @media (forced-colors: active) { .glow { color: CanvasText; background: none; } }
+
+/* language switch (plain link between the English and Romanian pages) */
+.nav .lang-switch { padding: 6px 12px; font-size: 0.84rem; border: 1px solid rgba(255, 255, 255, 0.2); }
+.nav .lang-switch:hover { border-color: rgba(255, 255, 255, 0.4); }
+@media (max-width: 520px) {
+    .nav .lang-switch { padding: 6px 9px; font-size: 0.8rem; }
+}
+@media (max-width: 400px) {
+    .motto { gap: 6px; padding: 9px 12px; font-size: 0.7rem; letter-spacing: 0.08em; }
+}

@@ -1,0 +1,23 @@
+# Luris
+
+> Luris is a free step counter and fitness tracker for iPhone (iOS 18.0 or later). It reads steps and activity from Apple Health, records walks, runs and bike rides with GPS and a route map, builds a six-week workout plan from 873 exercises, tracks weight and body fat trends with progress photos, and offers an optional weekly steps leaderboard in Game Center. No account is needed. Developer: Visto Apps, the brand of Darius Cirjan.
+
+Platform: iPhone only (no iPad or Apple Watch app). App Store: https://apps.apple.com/app/id6813596103
+Price model: free to download with ads in the free version. Luris Pro is optional, as a subscription or a one-time lifetime purchase, and removes ads and adds the plan, exercise library, custom workouts, progress photos and body charts, and Share Studio. Prices are shown in the app and differ by country.
+Languages: 45 in the app. This website is in English and Romanian.
+Privacy: health data stays on the iPhone; the developer receives none of it. The only health-derived value that can leave the device is the weekly step total, and only if the user joins the leaderboard (sent to Apple Game Center).
+
+## English pages
+- [Home](https://lurisapp.com/): features, privacy summary, Luris Pro, common questions
+- [Support](https://lurisapp.com/support.html): help with steps, GPS, leaderboard, deleting data, subscriptions, units
+- [Privacy Policy](https://lurisapp.com/privacy.html)
+- [Terms of Use](https://lurisapp.com/terms.html)
+
+## Pagini in romana
+- [Acasa](https://lurisapp.com/ro/)
+- [Asistenta](https://lurisapp.com/ro/support.html)
+- [Politica de confidentialitate](https://lurisapp.com/ro/privacy.html)
+- [Termeni de utilizare](https://lurisapp.com/ro/terms.html)
+
+## Contact
+iosallapps@gmail.com

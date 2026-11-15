@@ -29,8 +29,22 @@ from urllib.parse import urlparse
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
 ORIGIN = "https://lurisapp.com"
-PAGES = ["index.html", "support.html", "privacy.html", "terms.html", "404.html"]
-MARKETING = {"index.html", "support.html", "404.html"}
+PAGES = ["index.html", "support.html", "privacy.html", "terms.html",
+         "ro/index.html", "ro/support.html", "ro/privacy.html", "ro/terms.html", "404.html"]
+MARKETING = {"index.html", "support.html", "ro/index.html", "ro/support.html", "404.html"}
+
+
+def page_url(page):
+    """The public URL of a page file: the home pages are served at / and /ro/."""
+    if page == "index.html":
+        return ORIGIN + "/"
+    if page == "ro/index.html":
+        return ORIGIN + "/ro/"
+    return ORIGIN + "/" + page
+
+
+def other_language(page):
+    return page[3:] if page.startswith("ro/") else "ro/" + page
 
 # the claims register's "never" list (website brief, section 2 and 7.9). "cycling" was on it
 # until the app shipped GPS bike rides, which Apple Health stores as cycling workouts. "free",
@@ -156,7 +170,7 @@ def main():
             fail(page, "no meta description")
         if page != "404.html":
             canonical = next((a.get("href") for t, a in parsed.tags if t == "link" and a.get("rel") == "canonical"), None)
-            expected = ORIGIN + ("/" if page == "index.html" else "/" + page)
+            expected = page_url(page)
             if canonical != expected:
                 fail(page, f"canonical is {canonical!r}, expected {expected}")
             image = meta(parsed, "property", "og:image")
@@ -177,6 +191,9 @@ def main():
         attrs_text = " ".join(a.get(k, "") for t, a in parsed.tags for k in ("alt", "aria-label", "title"))
         meta_text = " ".join(a.get("content", "") for t, a in parsed.tags if t == "meta")
         ld_text = " ".join(body for kind, body in parsed.scripts if kind == "application/ld+json")
+        # the only amount allowed in JSON-LD is the free download: "price": "0" (Google needs offers
+        # for a software rich result; paid Luris Pro prices differ per storefront and stay out)
+        ld_text = re.sub(r'"offers": \{\s*"@type": "Offer",\s*"price": "0",\s*"priceCurrency": "USD"\s*\}', "", ld_text)
         scopes = {"meta": meta_text + " " + (parsed.title or ""), "json-ld": ld_text}
         if page in MARKETING:
             scopes["text"] = html.unescape(" ".join(parsed.text)) + " " + attrs_text
@@ -198,12 +215,29 @@ def main():
                 fail(page, f"JSON-LD does not parse: {error}")
                 continue
             blob = json.dumps(data)
-            for key in ("offers", "aggregateRating", "review"):
+            for key in ("aggregateRating", "review"):
                 if f'"{key}"' in blob:
                     fail(page, f"JSON-LD carries {key}")
+            for offer in re.findall(r'"offers": (\{.*?\})', blob):
+                if json.loads(offer) != {"@type": "Offer", "price": "0", "priceCurrency": "USD"}:
+                    fail(page, f"JSON-LD offer is not the free download: {offer}")
             has_download = '"downloadUrl"' in blob
-            if has_download != bool(state["released"]):
+            if '"MobileApplication"' in blob and has_download != bool(state["released"]):
                 fail(page, f"JSON-LD downloadUrl present={has_download} but released={state['released']}")
+
+        # hreflang: each indexable page names itself, its counterpart and x-default, and the
+        # counterpart points back (the check reads the other file, not a copy of its URL)
+        if page != "404.html":
+            alternates = {a.get("hreflang"): a.get("href") for t, a in parsed.tags
+                          if t == "link" and a.get("rel") == "alternate" and a.get("hreflang")}
+            en_page = other_language(page) if page.startswith("ro/") else page
+            ro_page = page if page.startswith("ro/") else other_language(page)
+            wanted = {"en": page_url(en_page), "ro": page_url(ro_page), "x-default": page_url(en_page)}
+            if alternates != wanted:
+                fail(page, f"hreflang alternates {alternates} differ from {wanted}")
+            html_lang = html_tag.get("lang")
+            if html_lang != ("ro" if page.startswith("ro/") else "en"):
+                fail(page, f"<html lang={html_lang!r}> does not match the page language")
 
         # release state
         banner = meta(parsed, "name", "apple-itunes-app")
@@ -282,7 +316,7 @@ def main():
         sitemap = handle.read()
     listed = set(re.findall(r"<loc>([^<]+)</loc>", sitemap))
     for page in PAGES:
-        url = ORIGIN + ("/" if page == "index.html" else "/" + page)
+        url = page_url(page)
         if page == "404.html":
             if url in listed:
                 fail("sitemap.xml", "lists the 404 page")

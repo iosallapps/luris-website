@@ -14,15 +14,19 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="preload" href="/assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/styles.css?v=2f9dd77f56">
+    <link rel="stylesheet" href="/styles.css?v=b98beccbe6">
     <!-- /build:head -->
     <!-- build:meta -->
     <title>Luris: Step &amp; Activity Tracker for iPhone</title>
-    <meta name="description" content="Luris counts your steps from Apple Health, maps your walks, runs and bike rides with GPS and builds a six-week plan from 873 exercises. No account needed.">
+    <meta name="description" content="Luris is a free step counter and fitness tracker for iPhone. Steps from Apple Health, GPS maps of walks, runs and rides, and a six-week plan.">
     <link rel="canonical" href="https://lurisapp.com/">
+    <link rel="alternate" hreflang="en" href="https://lurisapp.com/">
+    <link rel="alternate" hreflang="ro" href="https://lurisapp.com/ro/">
+    <link rel="alternate" hreflang="x-default" href="https://lurisapp.com/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Luris">
     <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ro_RO">
     <meta property="og:url" content="https://lurisapp.com/">
     <meta property="og:title" content="Luris: Step &amp; Activity Tracker for iPhone">
     <meta property="og:description" content="Steps, GPS walks, runs and rides, a six-week plan and progress you can see, built on Apple Health.">
@@ -50,15 +54,22 @@
           "@id": "https://lurisapp.com/#website",
           "url": "https://lurisapp.com/",
           "name": "Luris",
-          "inLanguage": "en"
+          "inLanguage": "en",
+          "publisher": {
+            "@id": "https://lurisapp.com/#developer"
+          }
         },
         {
           "@type": "Organization",
           "@id": "https://lurisapp.com/#developer",
           "name": "Visto Apps",
-          "description": "Visto Apps, the brand of Darius Cirjan",
           "url": "https://vistoapps.com",
-          "email": "mailto:iosallapps@gmail.com"
+          "founder": {
+            "@type": "Person",
+            "name": "Darius Cirjan"
+          },
+          "description": "Visto Apps, the brand of Darius Cirjan",
+          "email": "iosallapps@gmail.com"
         },
         {
           "@type": "MobileApplication",
@@ -66,7 +77,7 @@
           "name": "Luris",
           "alternateName": "Luris: Step & Activity Tracker",
           "url": "https://lurisapp.com/",
-          "description": "Luris counts your steps from Apple Health, maps your walks, runs and bike rides with GPS and builds a six-week plan from 873 exercises. No account needed.",
+          "description": "Luris is a free step counter and fitness tracker for iPhone. Steps from Apple Health, GPS maps of walks, runs and rides, and a six-week plan.",
           "applicationCategory": "HealthApplication",
           "applicationSubCategory": "Step counter and GPS walk, run and ride tracker",
           "operatingSystem": "iOS 18.0 or later",
@@ -135,6 +146,11 @@
             "https://lurisapp.com/img/screens/home-screen.jpg",
             "https://lurisapp.com/img/screens/route-screen.jpg"
           ],
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
           "author": {
             "@id": "https://lurisapp.com/#developer"
           },
@@ -142,8 +158,72 @@
             "@id": "https://lurisapp.com/#developer"
           },
           "downloadUrl": "https://apps.apple.com/app/id6813596103",
+          "installUrl": "https://apps.apple.com/app/id6813596103",
           "sameAs": [
             "https://apps.apple.com/app/id6813596103"
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://lurisapp.com/#faq",
+          "inLanguage": "en",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Do I need an Apple Watch?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Luris uses the steps and distance your iPhone records. If you wear an Apple Watch, its steps and activity reach Luris through Apple Health too."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which iPhones does Luris work on?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Any iPhone with iOS 18.0 or later. There is no iPad or Apple Watch app."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Luris free?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Luris is free to download, and steps, your activity history, GPS walks, runs and rides, the leaderboard, challenges, badges and the widget work without paying. The six-week plan and exercise library, custom workouts, progress photos and body charts, and Share Studio are part of Luris Pro, optional as a subscription you can cancel at any time or as a one-time lifetime purchase."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need an account?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. There is nothing to sign up for. Sign in with Apple is optional and only used to greet you by name."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I track bike rides?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Start one from Walk, Run & Ride on the Home tab. Luris maps your route with GPS and shows your distance, speed in km/h or mph, and calories, and saves the ride to Apple Health as a cycling workout."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which languages does Luris speak?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Forty-five: English, Arabic, Bengali, Catalan, Chinese (Simplified), Chinese (Traditional), Croatian, Czech, Danish, Dutch, Finnish, French, German, Greek, Gujarati, Hebrew, Hindi, Hungarian, Indonesian, Italian, Japanese, Kannada, Korean, Malay, Malayalam, Marathi, Norwegian, Odia, Polish, Portuguese (Brazil), Portuguese (Portugal), Punjabi, Romanian, Russian, Slovak, Slovenian, Spanish, Swedish, Tamil, Telugu, Thai, Turkish, Ukrainian, Urdu and Vietnamese. The 873 exercise names and instructions are in every one of them."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I delete my data?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Your data is on your iPhone, and the developer holds no copy. In Luris, open Profile, then Your data, and tap Delete All Data to delete everything the app keeps on your iPhone. Delete All Data does not touch Apple Health: what Luris saved there stays until you delete it in the Health app. Deleting a single session in Luris also removes the workout it saved for that session. The support page shows every step."
+              }
+            }
           ]
         }
       ]
@@ -197,6 +277,7 @@
                 <a class="nav-wide" href="/#pro">Luris Pro</a>
                 <a class="nav-wide" href="/#questions">Questions</a>
                 <a href="/support.html">Support</a>
+                <a class="lang-switch" href="/ro/" hreflang="ro" lang="ro" aria-label="Romanian">Română</a>
                 <a class="btn btn-primary btn-small" href="https://apps.apple.com/app/id6813596103?ct=web-header&amp;mt=8" aria-label="Get Luris on the App Store">Get Luris</a>
             </nav>
         </div>
@@ -683,6 +764,7 @@
                         <li><a href="/#pro">Luris Pro</a></li>
                         <li><a href="/#questions">Questions</a></li>
                         <li><a href="https://apps.apple.com/app/id6813596103?ct=web-footer&amp;mt=8">App Store</a></li>
+                        <li><a href="/ro/" hreflang="ro" lang="ro" aria-label="Romanian">Română</a></li>
                     </ul>
                 </nav>
                 <nav class="footer-col" aria-labelledby="footer-legal">
@@ -703,7 +785,7 @@
                 </nav>
                 <section class="footer-col footer-dev" aria-labelledby="footer-dev">
                     <h2 id="footer-dev">Developer</h2>
-                    <p>Visto Apps, the brand of Darius Cirjan<br>Independent developer, Romania<br><a href="mailto:iosallapps@gmail.com">iosallapps@gmail.com</a></p>
+                    <p>Visto Apps, the brand of Darius Cirjan<br>Independent developer, Romania<br><a href="mailto:iosallapps@gmail.com">iosallapps@gmail.com</a><br><a href="https://vistoapps.com/apps.html" rel="noopener">More apps by Visto Apps</a></p>
                 </section>
             </div>
             <p class="footer-health">Luris is not a medical device and does not give medical advice. Check with a doctor before starting a new exercise programme. <a href="/terms.html#accuracy">Read the health disclaimer</a>.</p>
